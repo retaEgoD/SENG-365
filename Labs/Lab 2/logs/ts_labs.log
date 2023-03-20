@@ -1,0 +1,170 @@
+2023-03-19 13:40:12:4012 [31merror[39m: [31mUnable to connect to MySQL.[39m
+2023-03-19 13:42:19:4219 [31merror[39m: [31mUnable to connect to MySQL.[39m
+2023-03-19 13:42:53:4253 [31merror[39m: [31mUnable to connect to MySQL.[39m
+2023-03-19 13:43:20:4320 [32minfo[39m: [32mSuccessfully connected to database[39m
+2023-03-19 13:43:20:4320 [32minfo[39m: [32mListening on port: 3000[39m
+2023-03-19 14:25:56:2556 [32minfo[39m: [32mSuccessfully connected to database[39m
+2023-03-19 14:25:56:2556 [32minfo[39m: [32mListening on port: 3000[39m
+2023-03-19 14:25:59:2559 [35mhttp[39m: [35mGET all users[39m
+2023-03-19 14:25:59:2559 [32minfo[39m: [32mGetting all users from the database[39m
+2023-03-19 14:26:12:2612 [35mhttp[39m: [35mGET all users[39m
+2023-03-19 14:26:12:2612 [32minfo[39m: [32mGetting all users from the database[39m
+2023-03-19 14:26:15:2615 [35mhttp[39m: [35mGET all users[39m
+2023-03-19 14:26:15:2615 [32minfo[39m: [32mGetting all users from the database[39m
+2023-03-19 14:26:15:2615 [35mhttp[39m: [35mGET all users[39m
+2023-03-19 14:26:15:2615 [32minfo[39m: [32mGetting all users from the database[39m
+2023-03-19 14:26:15:2615 [35mhttp[39m: [35mGET all users[39m
+2023-03-19 14:26:15:2615 [32minfo[39m: [32mGetting all users from the database[39m
+2023-03-19 14:26:15:2615 [35mhttp[39m: [35mGET all users[39m
+2023-03-19 14:26:15:2615 [32minfo[39m: [32mGetting all users from the database[39m
+2023-03-19 14:26:15:2615 [35mhttp[39m: [35mGET all users[39m
+2023-03-19 14:26:15:2615 [32minfo[39m: [32mGetting all users from the database[39m
+2023-03-19 14:26:16:2616 [35mhttp[39m: [35mGET all users[39m
+2023-03-19 14:26:16:2616 [32minfo[39m: [32mGetting all users from the database[39m
+2023-03-19 14:35:11:3511 [32minfo[39m: [32mSuccessfully connected to database[39m
+2023-03-19 14:35:11:3511 [32minfo[39m: [32mListening on port: 3000[39m
+2023-03-19 14:35:11:3511 [35mhttp[39m: [35mGET single user id: 1[39m
+2023-03-19 14:35:11:3511 [32minfo[39m: [32mGetting user 1 from the database[39m
+2023-03-19 14:35:11:3511 [35mhttp[39m: [35mGET single user id: styles.css[39m
+2023-03-19 14:35:11:3511 [32minfo[39m: [32mGetting user NaN from the database[39m
+2023-03-19 14:35:18:3518 [35mhttp[39m: [35mGET single user id: 0[39m
+2023-03-19 14:35:18:3518 [32minfo[39m: [32mGetting user 0 from the database[39m
+2023-03-19 14:35:18:3518 [35mhttp[39m: [35mGET single user id: styles.css[39m
+2023-03-19 14:35:18:3518 [32minfo[39m: [32mGetting user NaN from the database[39m
+2023-03-19 21:57:45:5745 [35mhttp[39m: [35mGET all users[39m
+2023-03-19 21:57:45:5745 [32minfo[39m: [32mGetting all users from the database[39m
+2023-03-19 21:58:12:5812 [31merror[39m: [31mUnable to connect to MySQL.[39m
+2023-03-19 21:58:50:5850 [31merror[39m: [31mUnable to connect to MySQL.[39m
+2023-03-19 21:59:21:5921 [32minfo[39m: [32mSuccessfully connected to database[39m
+2023-03-19 21:59:21:5921 [32minfo[39m: [32mListening on port: 3000[39m
+2023-03-19 21:59:32:5932 [35mhttp[39m: [35mGET all users[39m
+2023-03-19 21:59:32:5932 [32minfo[39m: [32mGetting all users from the database[39m
+2023-03-19 21:59:41:5941 [35mhttp[39m: [35mGET single user id: :1[39m
+2023-03-19 21:59:41:5941 [32minfo[39m: [32mGetting user NaN from the database[39m
+2023-03-19 21:59:41:5941 [35mhttp[39m: [35mGET single user id: styles.css[39m
+2023-03-19 21:59:41:5941 [32minfo[39m: [32mGetting user NaN from the database[39m
+2023-03-19 22:00:27:027 [35mhttp[39m: [35mGET all users[39m
+2023-03-19 22:00:27:027 [32minfo[39m: [32mGetting all users from the database[39m
+2023-03-19 22:00:31:031 [35mhttp[39m: [35mGET single user id: :1[39m
+2023-03-19 22:00:31:031 [32minfo[39m: [32mGetting user NaN from the database[39m
+2023-03-19 22:00:31:031 [35mhttp[39m: [35mGET single user id: styles.css[39m
+2023-03-19 22:00:31:031 [32minfo[39m: [32mGetting user NaN from the database[39m
+2023-03-19 22:00:53:053 [35mhttp[39m: [35mGET single user id: 1[39m
+2023-03-19 22:00:53:053 [32minfo[39m: [32mGetting user 1 from the database[39m
+2023-03-19 22:00:53:053 [35mhttp[39m: [35mGET single user id: styles.css[39m
+2023-03-19 22:00:53:053 [32minfo[39m: [32mGetting user NaN from the database[39m
+2023-03-19 22:01:12:112 [35mhttp[39m: [35mGET all users[39m
+2023-03-19 22:01:12:112 [32minfo[39m: [32mGetting all users from the database[39m
+2023-03-19 22:01:16:116 [35mhttp[39m: [35mGET single user id: 24[39m
+2023-03-19 22:01:16:116 [32minfo[39m: [32mGetting user 24 from the database[39m
+2023-03-19 22:01:31:131 [35mhttp[39m: [35mGET single user id: 24[39m
+2023-03-19 22:01:31:131 [32minfo[39m: [32mGetting user 24 from the database[39m
+2023-03-19 22:01:57:157 [35mhttp[39m: [35mPOST create a user with username: postman[39m
+2023-03-19 22:01:57:157 [32minfo[39m: [32mAdding user postman to the database[39m
+2023-03-19 22:04:01:41 [35mhttp[39m: [35mPOST create a user with username: postman[39m
+2023-03-19 22:04:01:41 [32minfo[39m: [32mAdding user postman to the database[39m
+2023-03-19 22:04:04:44 [35mhttp[39m: [35mGET all users[39m
+2023-03-19 22:04:04:44 [32minfo[39m: [32mGetting all users from the database[39m
+2023-03-19 22:04:56:456 [35mhttp[39m: [35mDELETE single user: 3[39m
+2023-03-19 22:04:56:456 [32minfo[39m: [32mDeleting user 3 from the database[39m
+2023-03-19 22:05:05:55 [35mhttp[39m: [35mDELETE single user: 3[39m
+2023-03-19 22:05:05:55 [32minfo[39m: [32mDeleting user 3 from the database[39m
+2023-03-19 22:05:37:537 [32minfo[39m: [32mSuccessfully connected to database[39m
+2023-03-19 22:05:37:537 [32minfo[39m: [32mListening on port: 3000[39m
+2023-03-19 22:05:42:542 [35mhttp[39m: [35mDELETE single user: 3[39m
+2023-03-19 22:05:42:542 [32minfo[39m: [32mDeleting user 3 from the database[39m
+2023-03-19 22:05:47:547 [35mhttp[39m: [35mDELETE single user: 3[39m
+2023-03-19 22:05:47:547 [32minfo[39m: [32mDeleting user 3 from the database[39m
+2023-03-19 22:06:12:612 [32minfo[39m: [32mSuccessfully connected to database[39m
+2023-03-19 22:06:12:612 [32minfo[39m: [32mListening on port: 3000[39m
+2023-03-19 22:06:14:614 [35mhttp[39m: [35mDELETE single user: 3[39m
+2023-03-19 22:06:14:614 [32minfo[39m: [32mDeleting user 3 from the database[39m
+2023-03-19 22:06:26:626 [35mhttp[39m: [35mGET all users[39m
+2023-03-19 22:06:26:626 [32minfo[39m: [32mGetting all users from the database[39m
+2023-03-19 22:07:10:710 [35mhttp[39m: [35mPOST create a user with username: postman[39m
+2023-03-19 22:07:10:710 [32minfo[39m: [32mAdding user postman to the database[39m
+2023-03-19 22:07:19:719 [35mhttp[39m: [35mPUT single user with id and new username: 4, updated[39m
+2023-03-19 22:07:19:719 [32minfo[39m: [32mModifying user with id 4 name to updated in the database[39m
+2023-03-19 22:09:23:923 [32minfo[39m: [32mSuccessfully connected to database[39m
+2023-03-19 22:09:23:923 [32minfo[39m: [32mListening on port: 3000[39m
+2023-03-19 22:09:26:926 [35mhttp[39m: [35mPUT single user with id and new username: 4, updated[39m
+2023-03-19 22:09:26:926 [32minfo[39m: [32mModifying user with id 4 name to updated in the database[39m
+2023-03-19 22:09:45:945 [35mhttp[39m: [35mGET all users[39m
+2023-03-19 22:09:45:945 [32minfo[39m: [32mGetting all users from the database[39m
+2023-03-19 22:11:01:111 [32minfo[39m: [32mSuccessfully connected to database[39m
+2023-03-19 22:11:01:111 [32minfo[39m: [32mListening on port: 3000[39m
+2023-03-19 22:11:04:114 [35mhttp[39m: [35mPUT single user with id and new username: 4, updated[39m
+2023-03-19 22:11:04:114 [32minfo[39m: [32mModifying user with id 4 name to updated in the database[39m
+2023-03-19 22:11:31:1131 [32minfo[39m: [32mSuccessfully connected to database[39m
+2023-03-19 22:11:31:1131 [32minfo[39m: [32mListening on port: 3000[39m
+2023-03-19 22:11:32:1132 [35mhttp[39m: [35mPUT single user with id and new username: 4, updated[39m
+2023-03-19 22:11:33:1133 [32minfo[39m: [32mModifying user with id 4 name to updated in the database[39m
+2023-03-19 23:18:36:1836 [35mhttp[39m: [35mGET single user id: 999999999999999999[39m
+2023-03-19 23:18:36:1836 [32minfo[39m: [32mGetting user 1000000000000000000 from the database[39m
+2023-03-19 23:19:10:1910 [35mhttp[39m: [35mGET single user id: 999[39m
+2023-03-19 23:19:10:1910 [32minfo[39m: [32mGetting user 999 from the database[39m
+2023-03-19 23:19:25:1925 [31merror[39m: [31mUnable to connect to MySQL.[39m
+2023-03-19 23:19:58:1958 [32minfo[39m: [32mSuccessfully connected to database[39m
+2023-03-19 23:19:58:1958 [32minfo[39m: [32mListening on port: 3000[39m
+2023-03-19 23:20:25:2025 [35mhttp[39m: [35mGET single user id: 999[39m
+2023-03-19 23:20:25:2025 [32minfo[39m: [32mGetting user 999 from the database[39m
+2023-03-19 23:21:25:2125 [35mhttp[39m: [35mGET all users[39m
+2023-03-19 23:21:25:2125 [32minfo[39m: [32mGetting all users from the database[39m
+2023-03-19 23:21:31:2131 [35mhttp[39m: [35mGET all users[39m
+2023-03-19 23:21:31:2131 [32minfo[39m: [32mGetting all users from the database[39m
+2023-03-19 23:22:07:227 [35mhttp[39m: [35mGET all users[39m
+2023-03-19 23:22:07:227 [32minfo[39m: [32mGetting all users from the database[39m
+2023-03-19 23:23:04:234 [35mhttp[39m: [35mGET all users[39m
+2023-03-19 23:23:04:234 [32minfo[39m: [32mGetting all users from the database[39m
+2023-03-19 23:23:05:235 [35mhttp[39m: [35mGET all users[39m
+2023-03-19 23:23:05:235 [32minfo[39m: [32mGetting all users from the database[39m
+2023-03-19 23:23:19:2319 [35mhttp[39m: [35mPOST create a user with username: undefined[39m
+2023-03-19 23:40:28:4028 [35mhttp[39m: [35mPOST create a user with username: postman[39m
+2023-03-19 23:40:28:4028 [32minfo[39m: [32mAdding user postman to the database[39m
+2023-03-19 23:40:28:4028 [35mhttp[39m: [35mGET all users[39m
+2023-03-19 23:40:28:4028 [32minfo[39m: [32mGetting all users from the database[39m
+2023-03-19 23:40:28:4028 [35mhttp[39m: [35mGET single user id: 5[39m
+2023-03-19 23:40:28:4028 [32minfo[39m: [32mGetting user 5 from the database[39m
+2023-03-19 23:40:28:4028 [35mhttp[39m: [35mPUT single user with id and new username: 5, updated[39m
+2023-03-19 23:40:28:4028 [32minfo[39m: [32mModifying user with id 5 name to updated in the database[39m
+2023-03-19 23:40:28:4028 [35mhttp[39m: [35mDELETE single user: 5[39m
+2023-03-19 23:40:28:4028 [32minfo[39m: [32mDeleting user 5 from the database[39m
+2023-03-19 23:41:59:4159 [35mhttp[39m: [35mPOST create a user with username: postman[39m
+2023-03-19 23:41:59:4159 [32minfo[39m: [32mAdding user postman to the database[39m
+2023-03-19 23:41:59:4159 [35mhttp[39m: [35mGET all users[39m
+2023-03-19 23:41:59:4159 [32minfo[39m: [32mGetting all users from the database[39m
+2023-03-19 23:41:59:4159 [35mhttp[39m: [35mGET single user id: 6[39m
+2023-03-19 23:41:59:4159 [32minfo[39m: [32mGetting user 6 from the database[39m
+2023-03-19 23:41:59:4159 [35mhttp[39m: [35mPUT single user with id and new username: 6, updated[39m
+2023-03-19 23:41:59:4159 [32minfo[39m: [32mModifying user with id 6 name to updated in the database[39m
+2023-03-19 23:41:59:4159 [35mhttp[39m: [35mDELETE single user: 6[39m
+2023-03-19 23:41:59:4159 [32minfo[39m: [32mDeleting user 6 from the database[39m
+2023-03-19 23:41:59:4159 [35mhttp[39m: [35mGET single user id: 999999999999999999[39m
+2023-03-19 23:41:59:4159 [32minfo[39m: [32mGetting user 1000000000000000000 from the database[39m
+2023-03-19 23:41:59:4159 [35mhttp[39m: [35mPOST create a user with username: undefined[39m
+2023-03-19 23:42:29:4229 [35mhttp[39m: [35mPOST create a user with username: postman[39m
+2023-03-19 23:42:29:4229 [32minfo[39m: [32mAdding user postman to the database[39m
+2023-03-19 23:42:30:4230 [35mhttp[39m: [35mGET all users[39m
+2023-03-19 23:42:30:4230 [32minfo[39m: [32mGetting all users from the database[39m
+2023-03-19 23:42:30:4230 [35mhttp[39m: [35mGET single user id: 7[39m
+2023-03-19 23:42:30:4230 [32minfo[39m: [32mGetting user 7 from the database[39m
+2023-03-19 23:42:30:4230 [35mhttp[39m: [35mPUT single user with id and new username: 7, updated[39m
+2023-03-19 23:42:30:4230 [32minfo[39m: [32mModifying user with id 7 name to updated in the database[39m
+2023-03-19 23:42:30:4230 [35mhttp[39m: [35mDELETE single user: 7[39m
+2023-03-19 23:42:30:4230 [32minfo[39m: [32mDeleting user 7 from the database[39m
+2023-03-19 23:42:30:4230 [35mhttp[39m: [35mGET single user id: 999999999999999999[39m
+2023-03-19 23:42:30:4230 [32minfo[39m: [32mGetting user 1000000000000000000 from the database[39m
+2023-03-19 23:42:30:4230 [35mhttp[39m: [35mPOST create a user with username: undefined[39m
+2023-03-19 23:48:33:4833 [35mhttp[39m: [35mPOST create a user with username: postman[39m
+2023-03-19 23:48:33:4833 [32minfo[39m: [32mAdding user postman to the database[39m
+2023-03-19 23:48:33:4833 [35mhttp[39m: [35mGET all users[39m
+2023-03-19 23:48:33:4833 [32minfo[39m: [32mGetting all users from the database[39m
+2023-03-19 23:48:33:4833 [35mhttp[39m: [35mGET single user id: 8[39m
+2023-03-19 23:48:33:4833 [32minfo[39m: [32mGetting user 8 from the database[39m
+2023-03-19 23:48:33:4833 [35mhttp[39m: [35mPUT single user with id and new username: 8, updated[39m
+2023-03-19 23:48:33:4833 [32minfo[39m: [32mModifying user with id 8 name to updated in the database[39m
+2023-03-19 23:48:34:4834 [35mhttp[39m: [35mDELETE single user: 8[39m
+2023-03-19 23:48:34:4834 [32minfo[39m: [32mDeleting user 8 from the database[39m
+2023-03-19 23:48:34:4834 [35mhttp[39m: [35mGET single user id: 999[39m
+2023-03-19 23:48:34:4834 [32minfo[39m: [32mGetting user 999 from the database[39m
+2023-03-19 23:48:34:4834 [35mhttp[39m: [35mPOST create a user with username: undefined[39m
