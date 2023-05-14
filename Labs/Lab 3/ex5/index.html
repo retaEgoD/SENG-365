@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>My Application</title>
+    </head>
+    <body>
+        <div id="root">
+        </div>
+        <!-- Import the React, React-Dom and Babel libraries from unpkg -->
+        <script crossorigin src="https://unpkg.com/react@18.2.0/umd/react.development.js"></script> <!--Note: development versions of react-->
+        <script crossorigin src="https://unpkg.com/react-dom@18.2.0/umd/react-dom.development.js"></script>
+        <script type="application/javascript" src="https://unpkg.com/babel-standalone@6.26.0/babel.js"></script>
+        <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+        <script type="text/babel">
+
+            const rootElement = document.getElementById('root')
+
+            
+
+            const UserList = () => {
+                const [users, setUsers] = React.useState([])
+                const [username, setUsername] = React.useState("")
+                const [username2, setUsername2] = React.useState("")
+                const [id, setId] = React.useState("")
+
+
+                React.useEffect(() => {
+                    const getUsers = () => {
+                        axios.get('http://localhost:3000/api/users')
+                            .then((response) => {
+                                console.log(response.data)
+                                setUsers(response.data)
+                            }, (error) => {
+                                console.log(error)
+                            })
+                    }
+                    getUsers()
+                }, []) // empty array so effect only runs once
+
+                const list_of_users = () => {
+                    // Work around for map not working on state lists in render, here we explicitly call it when ever render is called
+                    return users.map((item) =>
+                        <li key={item.user_id}>
+                            <p>
+                                {item.username}
+                                <button onClick={() => deleteUser(item)}>Delete</button>
+                            </p>
+                        </li>)
+                }
+                
+                const updateUsernameState = (event) => {
+                    setUsername(event.target.value)
+                }
+
+                const addUser = () => {
+                    event.preventDefault(); // stop page reloading automatically so post request has chance to complete on Firefox
+                    if (username === "") {
+                        alert("Please enter a username!")
+                    } else {
+                        axios.post('http://localhost:3000/api/users', { "username": username })
+                            .then(() => location.reload());
+                    }
+                }
+
+                const deleteUser = (user) => {
+                    axios.delete('http://localhost:3000/api/users/' + user.user_id)
+                        .then((response) => {
+                            setUsers(users.filter(u => u.user_id != user.user_id))
+                        })
+                }
+
+                const updateUsername2State = (event) => {
+                    setUsername2(event.target.value)
+                }
+
+                const updateIdState = (event) => {
+                    setId(event.target.value)
+                }
+
+                const updateUser = () => {
+                    event.preventDefault(); // stop page reloading automatically so post request has chance to complete on Firefox
+                    if (id === "") {
+                        alert("Please enter an id!")
+                    } else if (username2 === "") {
+                        alert("Please enter a username!")
+                    } else {
+                        axios.put('http://localhost:3000/api/users/' + id, { "username": username2 })
+                            .then(() => location.reload());
+                    }
+                }
+                    
+                    
+                    
+                return (
+                        <div>
+                            <h1>Users</h1>
+                            <ul>
+                                {list_of_users()}
+                            </ul>
+                            <h2>Add a new user:</h2>
+                            <form onSubmit={addUser}>
+                                <input type="text" value={username} onChange={updateUsernameState} />
+                                <input type="submit" value="Submit" />
+                            </form>
+                            <h2>Edit a user:</h2>
+                            <form onSubmit={updateUser}>
+                                <input type="text" value={id} onChange={updateIdState} />
+                                <input type="text" value={username2} onChange={updateUsername2State} />
+                                <input type="submit" value="Submit" />
+                            </form>
+
+                        </div>
+                    )
+                    
+            }
+
+            function App() {
+                return (
+                    <div>
+                        <UserList/>
+                    </div>
+                )
+            }
+                    
+            ReactDOM.render(
+                <App />, rootElement
+            )
+
+        </script>
+    </body>
+</html>

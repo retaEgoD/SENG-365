@@ -168,3 +168,401 @@
 2023-03-19 23:48:34:4834 [35mhttp[39m: [35mGET single user id: 999[39m
 2023-03-19 23:48:34:4834 [32minfo[39m: [32mGetting user 999 from the database[39m
 2023-03-19 23:48:34:4834 [35mhttp[39m: [35mPOST create a user with username: undefined[39m
+2023-04-29 01:05:29:529 [31merror[39m: [31mUnable to connect to MySQL.[39m
+2023-04-29 01:06:02:62 [32minfo[39m: [32mSuccessfully connected to database[39m
+2023-04-29 01:06:02:62 [32minfo[39m: [32mListening on port: 3000[39m
+2023-04-29 01:06:54:654 [35mhttp[39m: [35mGET all users[39m
+2023-04-29 01:06:54:654 [32minfo[39m: [32mGetting all users from the database[39m
+2023-04-29 01:32:30:3230 [35mhttp[39m: [35mGET all users[39m
+2023-04-29 01:32:30:3230 [32minfo[39m: [32mGetting all users from the database[39m
+2023-04-29 01:32:47:3247 [35mhttp[39m: [35mGET all users[39m
+2023-04-29 01:32:47:3247 [32minfo[39m: [32mGetting all users from the database[39m
+2023-04-29 01:33:20:3320 [35mhttp[39m: [35mGET all users[39m
+2023-04-29 01:33:20:3320 [32minfo[39m: [32mGetting all users from the database[39m
+2023-04-29 01:56:16:5616 [35mhttp[39m: [35mGET all users[39m
+2023-04-29 01:56:16:5616 [32minfo[39m: [32mGetting all users from the database[39m
+2023-04-29 01:59:34:5934 [35mhttp[39m: [35mGET all users[39m
+2023-04-29 01:59:34:5934 [32minfo[39m: [32mGetting all users from the database[39m
+2023-04-29 01:59:54:5954 [35mhttp[39m: [35mPOST create a user with username: New_user[39m
+2023-04-29 01:59:54:5954 [32minfo[39m: [32mAdding user New_user to the database[39m
+2023-04-29 01:59:54:5954 [35mhttp[39m: [35mGET all users[39m
+2023-04-29 01:59:54:5954 [32minfo[39m: [32mGetting all users from the database[39m
+2023-04-29 02:00:44:044 [35mhttp[39m: [35mGET all users[39m
+2023-04-29 02:00:44:044 [32minfo[39m: [32mGetting all users from the database[39m
+2023-04-29 02:00:45:045 [35mhttp[39m: [35mDELETE single user: 9[39m
+2023-04-29 02:00:45:045 [32minfo[39m: [32mDeleting user 9 from the database[39m
+2023-04-29 02:03:46:346 [35mhttp[39m: [35mGET all users[39m
+2023-04-29 02:03:46:346 [32minfo[39m: [32mGetting all users from the database[39m
+2023-04-29 02:04:20:420 [35mhttp[39m: [35mGET all users[39m
+2023-04-29 02:04:20:420 [32minfo[39m: [32mGetting all users from the database[39m
+2023-04-29 02:04:22:422 [35mhttp[39m: [35mGET all users[39m
+2023-04-29 02:04:22:422 [32minfo[39m: [32mGetting all users from the database[39m
+2023-04-29 02:08:37:837 [35mhttp[39m: [35mGET all users[39m
+2023-04-29 02:08:37:837 [32minfo[39m: [32mGetting all users from the database[39m
+2023-04-29 02:09:01:91 [35mhttp[39m: [35mGET all users[39m
+2023-04-29 02:09:01:91 [32minfo[39m: [32mGetting all users from the database[39m
+2023-04-29 02:09:08:98 [35mhttp[39m: [35mGET all users[39m
+2023-04-29 02:09:08:98 [32minfo[39m: [32mGetting all users from the database[39m
+2023-04-29 02:09:11:911 [35mhttp[39m: [35mPOST create a user with username: sthsr[39m
+2023-04-29 02:09:11:911 [32minfo[39m: [32mAdding user sthsr to the database[39m
+2023-04-29 02:09:11:911 [35mhttp[39m: [35mGET all users[39m
+2023-04-29 02:09:11:911 [32minfo[39m: [32mGetting all users from the database[39m
+2023-04-29 02:09:15:915 [35mhttp[39m: [35mGET all users[39m
+2023-04-29 02:09:15:915 [32minfo[39m: [32mGetting all users from the database[39m
+2023-04-29 02:09:31:931 [35mhttp[39m: [35mGET all users[39m
+2023-04-29 02:09:31:931 [32minfo[39m: [32mGetting all users from the database[39m
+2023-04-29 02:09:43:943 [35mhttp[39m: [35mGET all users[39m
+2023-04-29 02:09:43:943 [32minfo[39m: [32mGetting all users from the database[39m
+2023-04-29 02:09:50:950 [35mhttp[39m: [35mGET all users[39m
+2023-04-29 02:09:50:950 [32minfo[39m: [32mGetting all users from the database[39m
+2023-04-29 02:12:06:126 [35mhttp[39m: [35mGET all users[39m
+2023-04-29 02:12:06:126 [32minfo[39m: [32mGetting all users from the database[39m
+2023-04-29 02:13:11:1311 [35mhttp[39m: [35mGET all users[39m
+2023-04-29 02:13:11:1311 [32minfo[39m: [32mGetting all users from the database[39m
+2023-04-29 02:13:12:1312 [35mhttp[39m: [35mGET all users[39m
+2023-04-29 02:13:12:1312 [32minfo[39m: [32mGetting all users from the database[39m
+2023-04-29 02:13:12:1312 [35mhttp[39m: [35mGET all users[39m
+2023-04-29 02:13:12:1312 [32minfo[39m: [32mGetting all users from the database[39m
+2023-04-29 02:14:24:1424 [35mhttp[39m: [35mGET all users[39m
+2023-04-29 02:14:24:1424 [32minfo[39m: [32mGetting all users from the database[39m
+2023-04-29 02:14:26:1426 [35mhttp[39m: [35mPUT single user with id and new username: asdgf, asdgf[39m
+2023-04-29 02:14:26:1426 [32minfo[39m: [32mModifying user with id NaN name to asdgf in the database[39m
+2023-04-29 02:14:42:1442 [35mhttp[39m: [35mGET all users[39m
+2023-04-29 02:14:42:1442 [32minfo[39m: [32mGetting all users from the database[39m
+2023-04-29 02:14:44:1444 [35mhttp[39m: [35mPUT single user with id and new username: asdgf, asdgf[39m
+2023-04-29 02:14:44:1444 [32minfo[39m: [32mModifying user with id NaN name to asdgf in the database[39m
+2023-04-29 02:15:35:1535 [35mhttp[39m: [35mGET all users[39m
+2023-04-29 02:15:35:1535 [32minfo[39m: [32mGetting all users from the database[39m
+2023-04-29 02:15:37:1537 [35mhttp[39m: [35mPUT single user with id and new username: dsgfa, dsgfa[39m
+2023-04-29 02:15:37:1537 [32minfo[39m: [32mModifying user with id NaN name to dsgfa in the database[39m
+2023-04-29 02:16:23:1623 [35mhttp[39m: [35mPUT single user with id and new username: aerg, aerg[39m
+2023-04-29 02:16:23:1623 [32minfo[39m: [32mModifying user with id NaN name to aerg in the database[39m
+2023-04-29 02:16:33:1633 [35mhttp[39m: [35mPUT single user with id and new username: sthsr, sthsr[39m
+2023-04-29 02:16:33:1633 [32minfo[39m: [32mModifying user with id NaN name to sthsr in the database[39m
+2023-04-29 02:16:34:1634 [35mhttp[39m: [35mPUT single user with id and new username: sthsr, sthsr[39m
+2023-04-29 02:16:34:1634 [32minfo[39m: [32mModifying user with id NaN name to sthsr in the database[39m
+2023-04-29 02:16:34:1634 [35mhttp[39m: [35mPUT single user with id and new username: sthsr, sthsr[39m
+2023-04-29 02:16:34:1634 [32minfo[39m: [32mModifying user with id NaN name to sthsr in the database[39m
+2023-04-29 02:16:35:1635 [35mhttp[39m: [35mGET all users[39m
+2023-04-29 02:16:35:1635 [32minfo[39m: [32mGetting all users from the database[39m
+2023-04-29 02:18:03:183 [35mhttp[39m: [35mGET all users[39m
+2023-04-29 02:18:03:183 [32minfo[39m: [32mGetting all users from the database[39m
+2023-04-29 02:18:05:185 [35mhttp[39m: [35mPUT single user with id and new username: asdf, asdf[39m
+2023-04-29 02:18:05:185 [32minfo[39m: [32mModifying user with id NaN name to asdf in the database[39m
+2023-04-29 02:19:03:193 [35mhttp[39m: [35mGET all users[39m
+2023-04-29 02:19:03:193 [32minfo[39m: [32mGetting all users from the database[39m
+2023-04-29 02:19:11:1911 [35mhttp[39m: [35mPUT single user with id and new username: a, 4[39m
+2023-04-29 02:20:17:2017 [35mhttp[39m: [35mPUT single user with id and new username: aaaaa, 4[39m
+2023-04-29 02:20:51:2051 [35mhttp[39m: [35mGET all users[39m
+2023-04-29 02:20:51:2051 [32minfo[39m: [32mGetting all users from the database[39m
+2023-04-29 02:20:53:2053 [35mhttp[39m: [35mPUT single user with id and new username: aaaaaaaaa, aaaaaaaaa[39m
+2023-04-29 02:20:53:2053 [32minfo[39m: [32mModifying user with id NaN name to aaaaaaaaa in the database[39m
+2023-04-29 02:22:26:2226 [35mhttp[39m: [35mGET all users[39m
+2023-04-29 02:22:26:2226 [32minfo[39m: [32mGetting all users from the database[39m
+2023-04-29 02:22:33:2233 [35mhttp[39m: [35mGET all users[39m
+2023-04-29 02:22:33:2233 [32minfo[39m: [32mGetting all users from the database[39m
+2023-04-29 02:22:37:2237 [35mhttp[39m: [35mGET all users[39m
+2023-04-29 02:22:37:2237 [32minfo[39m: [32mGetting all users from the database[39m
+2023-04-29 02:22:48:2248 [35mhttp[39m: [35mGET all users[39m
+2023-04-29 02:22:48:2248 [32minfo[39m: [32mGetting all users from the database[39m
+2023-04-29 02:22:50:2250 [35mhttp[39m: [35mPOST create a user with username: asdg[39m
+2023-04-29 02:22:50:2250 [32minfo[39m: [32mAdding user asdg to the database[39m
+2023-04-29 02:22:52:2252 [35mhttp[39m: [35mPOST create a user with username: asdg[39m
+2023-04-29 02:22:52:2252 [32minfo[39m: [32mAdding user asdg to the database[39m
+2023-04-29 02:22:52:2252 [35mhttp[39m: [35mPOST create a user with username: asdg[39m
+2023-04-29 02:22:52:2252 [32minfo[39m: [32mAdding user asdg to the database[39m
+2023-04-29 02:22:53:2253 [35mhttp[39m: [35mPOST create a user with username: asdg[39m
+2023-04-29 02:22:53:2253 [32minfo[39m: [32mAdding user asdg to the database[39m
+2023-04-29 02:22:53:2253 [35mhttp[39m: [35mPOST create a user with username: asdg[39m
+2023-04-29 02:22:53:2253 [32minfo[39m: [32mAdding user asdg to the database[39m
+2023-04-29 02:22:55:2255 [35mhttp[39m: [35mGET all users[39m
+2023-04-29 02:22:55:2255 [32minfo[39m: [32mGetting all users from the database[39m
+2023-04-29 02:23:05:235 [35mhttp[39m: [35mGET all users[39m
+2023-04-29 02:23:05:235 [32minfo[39m: [32mGetting all users from the database[39m
+2023-04-29 02:23:32:2332 [35mhttp[39m: [35mGET all users[39m
+2023-04-29 02:23:32:2332 [32minfo[39m: [32mGetting all users from the database[39m
+2023-04-29 02:24:39:2439 [35mhttp[39m: [35mGET all users[39m
+2023-04-29 02:24:39:2439 [32minfo[39m: [32mGetting all users from the database[39m
+2023-04-29 02:24:44:2444 [35mhttp[39m: [35mGET all users[39m
+2023-04-29 02:24:44:2444 [32minfo[39m: [32mGetting all users from the database[39m
+2023-04-29 02:24:45:2445 [35mhttp[39m: [35mGET all users[39m
+2023-04-29 02:24:45:2445 [32minfo[39m: [32mGetting all users from the database[39m
+2023-04-29 02:24:45:2445 [35mhttp[39m: [35mGET all users[39m
+2023-04-29 02:24:45:2445 [32minfo[39m: [32mGetting all users from the database[39m
+2023-04-29 02:25:22:2522 [32minfo[39m: [32mSuccessfully connected to database[39m
+2023-04-29 02:25:22:2522 [32minfo[39m: [32mListening on port: 3000[39m
+2023-04-29 02:25:25:2525 [35mhttp[39m: [35mGET all users[39m
+2023-04-29 02:25:25:2525 [32minfo[39m: [32mGetting all users from the database[39m
+2023-04-29 02:25:34:2534 [35mhttp[39m: [35mPUT single user with id and new username: 4, Changed[39m
+2023-04-29 02:25:34:2534 [32minfo[39m: [32mModifying user with id 4 name to Changed in the database[39m
+2023-04-29 02:25:34:2534 [35mhttp[39m: [35mGET all users[39m
+2023-04-29 02:25:34:2534 [32minfo[39m: [32mGetting all users from the database[39m
+2023-04-29 22:17:52:1752 [32minfo[39m: [32mSuccessfully connected to database[39m
+2023-04-29 22:17:52:1752 [32minfo[39m: [32mListening on port: 3000[39m
+2023-04-29 22:34:57:3457 [32minfo[39m: [32mSuccessfully connected to database[39m
+2023-04-29 22:34:57:3457 [32minfo[39m: [32mListening on port: 3000[39m
+2023-04-29 23:01:32:132 [35mhttp[39m: [35mGET all users[39m
+2023-04-29 23:01:32:132 [32minfo[39m: [32mGetting all users from the database[39m
+2023-04-29 23:01:39:139 [35mhttp[39m: [35mGET all users[39m
+2023-04-29 23:01:39:139 [32minfo[39m: [32mGetting all users from the database[39m
+2023-04-29 23:02:41:241 [35mhttp[39m: [35mGET all users[39m
+2023-04-29 23:02:41:241 [32minfo[39m: [32mGetting all users from the database[39m
+2023-04-29 23:05:01:51 [35mhttp[39m: [35mGET single user id: 1[39m
+2023-04-29 23:05:01:51 [32minfo[39m: [32mGetting user 1 from the database[39m
+2023-04-29 23:08:45:845 [35mhttp[39m: [35mGET all users[39m
+2023-04-29 23:08:45:845 [32minfo[39m: [32mGetting all users from the database[39m
+2023-04-29 23:12:39:1239 [35mhttp[39m: [35mGET single user id: 10[39m
+2023-04-29 23:12:39:1239 [32minfo[39m: [32mGetting user 10 from the database[39m
+2023-04-29 23:12:43:1243 [35mhttp[39m: [35mGET all users[39m
+2023-04-29 23:12:43:1243 [32minfo[39m: [32mGetting all users from the database[39m
+2023-04-29 23:12:44:1244 [35mhttp[39m: [35mGET single user id: 10[39m
+2023-04-29 23:12:44:1244 [32minfo[39m: [32mGetting user 10 from the database[39m
+2023-04-29 23:14:35:1435 [35mhttp[39m: [35mGET single user id: 10[39m
+2023-04-29 23:14:35:1435 [32minfo[39m: [32mGetting user 10 from the database[39m
+2023-04-29 23:14:38:1438 [35mhttp[39m: [35mGET single user id: 10[39m
+2023-04-29 23:14:38:1438 [32minfo[39m: [32mGetting user 10 from the database[39m
+2023-04-29 23:22:50:2250 [35mhttp[39m: [35mGET all users[39m
+2023-04-29 23:22:50:2250 [32minfo[39m: [32mGetting all users from the database[39m
+2023-04-29 23:23:27:2327 [35mhttp[39m: [35mGET all users[39m
+2023-04-29 23:23:27:2327 [32minfo[39m: [32mGetting all users from the database[39m
+2023-04-29 23:23:37:2337 [35mhttp[39m: [35mGET single user id: 10[39m
+2023-04-29 23:23:37:2337 [32minfo[39m: [32mGetting user 10 from the database[39m
+2023-04-29 23:23:39:2339 [35mhttp[39m: [35mDELETE single user: 10[39m
+2023-04-29 23:23:39:2339 [32minfo[39m: [32mDeleting user 10 from the database[39m
+2023-04-29 23:23:50:2350 [35mhttp[39m: [35mDELETE single user: 10[39m
+2023-04-29 23:23:50:2350 [32minfo[39m: [32mDeleting user 10 from the database[39m
+2023-04-29 23:23:51:2351 [35mhttp[39m: [35mGET all users[39m
+2023-04-29 23:23:51:2351 [32minfo[39m: [32mGetting all users from the database[39m
+2023-04-29 23:23:56:2356 [35mhttp[39m: [35mGET single user id: 4[39m
+2023-04-29 23:23:56:2356 [32minfo[39m: [32mGetting user 4 from the database[39m
+2023-04-30 02:05:34:534 [35mhttp[39m: [35mGET single user id: 1[39m
+2023-04-30 02:05:34:534 [32minfo[39m: [32mGetting user 1 from the database[39m
+2023-04-30 02:07:11:711 [35mhttp[39m: [35mGET single user id: 1[39m
+2023-04-30 02:07:11:711 [32minfo[39m: [32mGetting user 1 from the database[39m
+2023-04-30 02:07:28:728 [35mhttp[39m: [35mGET single user id: 1[39m
+2023-04-30 02:07:28:728 [32minfo[39m: [32mGetting user 1 from the database[39m
+2023-04-30 02:07:35:735 [35mhttp[39m: [35mGET single user id: 1[39m
+2023-04-30 02:07:35:735 [32minfo[39m: [32mGetting user 1 from the database[39m
+2023-04-30 02:07:36:736 [35mhttp[39m: [35mGET single user id: 1[39m
+2023-04-30 02:07:36:736 [32minfo[39m: [32mGetting user 1 from the database[39m
+2023-04-30 02:07:46:746 [35mhttp[39m: [35mGET single user id: 1[39m
+2023-04-30 02:07:46:746 [32minfo[39m: [32mGetting user 1 from the database[39m
+2023-04-30 02:15:15:1515 [35mhttp[39m: [35mGET single user id: 1[39m
+2023-04-30 02:15:15:1515 [32minfo[39m: [32mGetting user 1 from the database[39m
+2023-04-30 02:15:23:1523 [35mhttp[39m: [35mPUT single user with id and new username: 0, akrejbglkaejr[39m
+2023-04-30 02:15:23:1523 [32minfo[39m: [32mModifying user with id 0 name to akrejbglkaejr in the database[39m
+2023-04-30 02:15:23:1523 [35mhttp[39m: [35mGET single user id: 1[39m
+2023-04-30 02:15:23:1523 [32minfo[39m: [32mGetting user 1 from the database[39m
+2023-04-30 02:15:28:1528 [35mhttp[39m: [35mGET all users[39m
+2023-04-30 02:15:28:1528 [32minfo[39m: [32mGetting all users from the database[39m
+2023-04-30 02:15:31:1531 [35mhttp[39m: [35mGET all users[39m
+2023-04-30 02:15:31:1531 [32minfo[39m: [32mGetting all users from the database[39m
+2023-04-30 02:15:43:1543 [35mhttp[39m: [35mGET all users[39m
+2023-04-30 02:15:43:1543 [32minfo[39m: [32mGetting all users from the database[39m
+2023-04-30 02:15:44:1544 [35mhttp[39m: [35mGET all users[39m
+2023-04-30 02:15:44:1544 [32minfo[39m: [32mGetting all users from the database[39m
+2023-04-30 02:15:50:1550 [35mhttp[39m: [35mGET all users[39m
+2023-04-30 02:15:50:1550 [32minfo[39m: [32mGetting all users from the database[39m
+2023-04-30 02:16:22:1622 [35mhttp[39m: [35mGET all users[39m
+2023-04-30 02:16:22:1622 [32minfo[39m: [32mGetting all users from the database[39m
+2023-04-30 02:17:03:173 [35mhttp[39m: [35mGET all users[39m
+2023-04-30 02:17:03:173 [32minfo[39m: [32mGetting all users from the database[39m
+2023-04-30 02:17:28:1728 [35mhttp[39m: [35mGET all users[39m
+2023-04-30 02:17:28:1728 [32minfo[39m: [32mGetting all users from the database[39m
+2023-04-30 02:17:50:1750 [35mhttp[39m: [35mGET all users[39m
+2023-04-30 02:17:50:1750 [32minfo[39m: [32mGetting all users from the database[39m
+2023-04-30 02:18:10:1810 [35mhttp[39m: [35mGET all users[39m
+2023-04-30 02:18:10:1810 [32minfo[39m: [32mGetting all users from the database[39m
+2023-04-30 02:18:19:1819 [35mhttp[39m: [35mGET single user id: 0[39m
+2023-04-30 02:18:19:1819 [32minfo[39m: [32mGetting user 0 from the database[39m
+2023-04-30 02:18:23:1823 [35mhttp[39m: [35mGET all users[39m
+2023-04-30 02:18:23:1823 [32minfo[39m: [32mGetting all users from the database[39m
+2023-04-30 02:18:27:1827 [35mhttp[39m: [35mGET all users[39m
+2023-04-30 02:18:27:1827 [32minfo[39m: [32mGetting all users from the database[39m
+2023-04-30 02:18:28:1828 [35mhttp[39m: [35mGET single user id: 0[39m
+2023-04-30 02:18:28:1828 [32minfo[39m: [32mGetting user 0 from the database[39m
+2023-04-30 02:18:28:1828 [35mhttp[39m: [35mGET all users[39m
+2023-04-30 02:18:28:1828 [32minfo[39m: [32mGetting all users from the database[39m
+2023-04-30 02:18:34:1834 [35mhttp[39m: [35mDELETE single user: 0[39m
+2023-04-30 02:18:34:1834 [32minfo[39m: [32mDeleting user 0 from the database[39m
+2023-04-30 02:18:34:1834 [35mhttp[39m: [35mGET all users[39m
+2023-04-30 02:18:34:1834 [32minfo[39m: [32mGetting all users from the database[39m
+2023-04-30 02:18:48:1848 [35mhttp[39m: [35mGET single user id: 10[39m
+2023-04-30 02:18:48:1848 [32minfo[39m: [32mGetting user 10 from the database[39m
+2023-04-30 02:18:51:1851 [35mhttp[39m: [35mGET single user id: 1[39m
+2023-04-30 02:18:51:1851 [32minfo[39m: [32mGetting user 1 from the database[39m
+2023-04-30 02:18:58:1858 [35mhttp[39m: [35mDELETE single user: 0[39m
+2023-04-30 02:18:58:1858 [32minfo[39m: [32mDeleting user 0 from the database[39m
+2023-04-30 02:19:00:190 [35mhttp[39m: [35mGET all users[39m
+2023-04-30 02:19:00:190 [32minfo[39m: [32mGetting all users from the database[39m
+2023-04-30 02:19:46:1946 [31merror[39m: [31mUnable to connect to MySQL.[39m
+2023-04-30 02:25:12:2512 [32minfo[39m: [32mSuccessfully connected to database[39m
+2023-04-30 02:25:12:2512 [32minfo[39m: [32mListening on port: 3000[39m
+2023-04-30 02:25:38:2538 [35mhttp[39m: [35mGET all users[39m
+2023-04-30 02:25:38:2538 [32minfo[39m: [32mGetting all users from the database[39m
+2023-04-30 02:25:42:2542 [35mhttp[39m: [35mGET single user id: 1[39m
+2023-04-30 02:25:42:2542 [32minfo[39m: [32mGetting user 1 from the database[39m
+2023-04-30 02:25:45:2545 [35mhttp[39m: [35mDELETE single user: 1[39m
+2023-04-30 02:25:45:2545 [32minfo[39m: [32mDeleting user 1 from the database[39m
+2023-04-30 02:25:50:2550 [35mhttp[39m: [35mDELETE single user: 1[39m
+2023-04-30 02:25:50:2550 [32minfo[39m: [32mDeleting user 1 from the database[39m
+2023-04-30 02:25:53:2553 [35mhttp[39m: [35mGET all users[39m
+2023-04-30 02:25:53:2553 [32minfo[39m: [32mGetting all users from the database[39m
+2023-04-30 02:26:21:2621 [35mhttp[39m: [35mGET single user id: 2[39m
+2023-04-30 02:26:21:2621 [32minfo[39m: [32mGetting user 2 from the database[39m
+2023-04-30 02:26:25:2625 [35mhttp[39m: [35mGET single user id: 2[39m
+2023-04-30 02:26:25:2625 [32minfo[39m: [32mGetting user 2 from the database[39m
+2023-04-30 02:26:29:2629 [35mhttp[39m: [35mGET all users[39m
+2023-04-30 02:26:29:2629 [32minfo[39m: [32mGetting all users from the database[39m
+2023-04-30 02:26:32:2632 [35mhttp[39m: [35mGET single user id: 2[39m
+2023-04-30 02:26:32:2632 [32minfo[39m: [32mGetting user 2 from the database[39m
+2023-04-30 02:26:34:2634 [35mhttp[39m: [35mGET single user id: 2[39m
+2023-04-30 02:26:34:2634 [32minfo[39m: [32mGetting user 2 from the database[39m
+2023-04-30 02:27:32:2732 [35mhttp[39m: [35mGET single user id: 2[39m
+2023-04-30 02:27:32:2732 [32minfo[39m: [32mGetting user 2 from the database[39m
+2023-04-30 02:27:37:2737 [35mhttp[39m: [35mPUT single user with id and new username: 2, dsfhgbser[39m
+2023-04-30 02:27:37:2737 [32minfo[39m: [32mModifying user with id 2 name to dsfhgbser in the database[39m
+2023-04-30 02:27:41:2741 [35mhttp[39m: [35mGET all users[39m
+2023-04-30 02:27:41:2741 [32minfo[39m: [32mGetting all users from the database[39m
+2023-04-30 02:27:44:2744 [35mhttp[39m: [35mGET single user id: 2[39m
+2023-04-30 02:27:44:2744 [32minfo[39m: [32mGetting user 2 from the database[39m
+2023-04-30 02:28:21:2821 [35mhttp[39m: [35mGET single user id: 2[39m
+2023-04-30 02:28:21:2821 [32minfo[39m: [32mGetting user 2 from the database[39m
+2023-04-30 02:28:27:2827 [35mhttp[39m: [35mGET single user id: 2[39m
+2023-04-30 02:28:27:2827 [32minfo[39m: [32mGetting user 2 from the database[39m
+2023-04-30 02:29:28:2928 [35mhttp[39m: [35mGET single user id: 2[39m
+2023-04-30 02:29:28:2928 [32minfo[39m: [32mGetting user 2 from the database[39m
+2023-04-30 02:29:34:2934 [35mhttp[39m: [35mPUT single user with id and new username: 2, sdfgsr[39m
+2023-04-30 02:29:34:2934 [32minfo[39m: [32mModifying user with id 2 name to sdfgsr in the database[39m
+2023-04-30 02:29:34:2934 [35mhttp[39m: [35mPUT single user with id and new username: 2, sdfgsr[39m
+2023-04-30 02:29:34:2934 [32minfo[39m: [32mModifying user with id 2 name to sdfgsr in the database[39m
+2023-04-30 02:29:38:2938 [35mhttp[39m: [35mGET single user id: 2[39m
+2023-04-30 02:29:38:2938 [32minfo[39m: [32mGetting user 2 from the database[39m
+2023-05-09 08:50:36:5036 [32minfo[39m: [32mSuccessfully connected to database[39m
+2023-05-09 08:50:36:5036 [32minfo[39m: [32mListening on port: 3000[39m
+2023-05-09 08:50:58:5058 [35mhttp[39m: [35mGET all users[39m
+2023-05-09 08:50:58:5058 [32minfo[39m: [32mGetting all users from the database[39m
+2023-05-09 08:51:03:513 [35mhttp[39m: [35mGET single user id: 2[39m
+2023-05-09 08:51:03:513 [32minfo[39m: [32mGetting user 2 from the database[39m
+2023-05-09 08:51:24:5124 [35mhttp[39m: [35mGET all users[39m
+2023-05-09 08:51:24:5124 [32minfo[39m: [32mGetting all users from the database[39m
+2023-05-09 08:51:27:5127 [35mhttp[39m: [35mGET single user id: 2[39m
+2023-05-09 08:51:27:5127 [32minfo[39m: [32mGetting user 2 from the database[39m
+2023-05-09 10:01:31:131 [35mhttp[39m: [35mGET single user id: 2[39m
+2023-05-09 10:01:31:131 [32minfo[39m: [32mGetting user 2 from the database[39m
+2023-05-09 10:08:48:848 [35mhttp[39m: [35mGET all users[39m
+2023-05-09 10:08:48:848 [32minfo[39m: [32mGetting all users from the database[39m
+2023-05-09 10:11:24:1124 [35mhttp[39m: [35mGET all users[39m
+2023-05-09 10:11:24:1124 [32minfo[39m: [32mGetting all users from the database[39m
+2023-05-09 10:22:32:2232 [35mhttp[39m: [35mGET all users[39m
+2023-05-09 10:22:32:2232 [32minfo[39m: [32mGetting all users from the database[39m
+2023-05-09 10:27:08:278 [35mhttp[39m: [35mGET all users[39m
+2023-05-09 10:27:08:278 [32minfo[39m: [32mGetting all users from the database[39m
+2023-05-09 10:30:43:3043 [35mhttp[39m: [35mGET all users[39m
+2023-05-09 10:30:43:3043 [32minfo[39m: [32mGetting all users from the database[39m
+2023-05-09 10:30:49:3049 [35mhttp[39m: [35mDELETE single user: 2[39m
+2023-05-09 10:30:49:3049 [32minfo[39m: [32mDeleting user 2 from the database[39m
+2023-05-09 10:30:50:3050 [35mhttp[39m: [35mDELETE single user: 2[39m
+2023-05-09 10:30:50:3050 [32minfo[39m: [32mDeleting user 2 from the database[39m
+2023-05-09 10:30:51:3051 [35mhttp[39m: [35mDELETE single user: 2[39m
+2023-05-09 10:30:51:3051 [32minfo[39m: [32mDeleting user 2 from the database[39m
+2023-05-09 10:30:51:3051 [35mhttp[39m: [35mDELETE single user: 2[39m
+2023-05-09 10:30:51:3051 [32minfo[39m: [32mDeleting user 2 from the database[39m
+2023-05-09 10:30:51:3051 [35mhttp[39m: [35mDELETE single user: 2[39m
+2023-05-09 10:30:51:3051 [32minfo[39m: [32mDeleting user 2 from the database[39m
+2023-05-09 10:30:51:3051 [35mhttp[39m: [35mDELETE single user: 2[39m
+2023-05-09 10:30:51:3051 [32minfo[39m: [32mDeleting user 2 from the database[39m
+2023-05-09 10:31:02:312 [35mhttp[39m: [35mDELETE single user: 2[39m
+2023-05-09 10:31:02:312 [32minfo[39m: [32mDeleting user 2 from the database[39m
+2023-05-09 10:31:16:3116 [35mhttp[39m: [35mGET all users[39m
+2023-05-09 10:31:16:3116 [32minfo[39m: [32mGetting all users from the database[39m
+2023-05-09 10:31:20:3120 [35mhttp[39m: [35mDELETE single user: 4[39m
+2023-05-09 10:31:20:3120 [32minfo[39m: [32mDeleting user 4 from the database[39m
+2023-05-09 10:31:22:3122 [35mhttp[39m: [35mGET all users[39m
+2023-05-09 10:31:22:3122 [32minfo[39m: [32mGetting all users from the database[39m
+2023-05-09 10:35:51:3551 [35mhttp[39m: [35mGET all users[39m
+2023-05-09 10:35:51:3551 [32minfo[39m: [32mGetting all users from the database[39m
+2023-05-09 10:37:17:3717 [35mhttp[39m: [35mGET all users[39m
+2023-05-09 10:37:17:3717 [32minfo[39m: [32mGetting all users from the database[39m
+2023-05-09 10:37:23:3723 [35mhttp[39m: [35mGET all users[39m
+2023-05-09 10:37:23:3723 [32minfo[39m: [32mGetting all users from the database[39m
+2023-05-09 10:37:24:3724 [35mhttp[39m: [35mDELETE single user: 11[39m
+2023-05-09 10:37:24:3724 [32minfo[39m: [32mDeleting user 11 from the database[39m
+2023-05-09 10:37:25:3725 [35mhttp[39m: [35mGET all users[39m
+2023-05-09 10:37:25:3725 [32minfo[39m: [32mGetting all users from the database[39m
+2023-05-09 10:39:14:3914 [35mhttp[39m: [35mGET single user id: 12[39m
+2023-05-09 10:39:14:3914 [32minfo[39m: [32mGetting user 12 from the database[39m
+2023-05-09 10:39:20:3920 [35mhttp[39m: [35mPUT single user with id and new username: 12, htshfd[39m
+2023-05-09 10:39:20:3920 [32minfo[39m: [32mModifying user with id 12 name to htshfd in the database[39m
+2023-05-09 10:39:26:3926 [35mhttp[39m: [35mGET all users[39m
+2023-05-09 10:39:26:3926 [32minfo[39m: [32mGetting all users from the database[39m
+2023-05-09 10:39:32:3932 [35mhttp[39m: [35mGET single user id: 12[39m
+2023-05-09 10:39:32:3932 [32minfo[39m: [32mGetting user 12 from the database[39m
+2023-05-09 10:39:34:3934 [35mhttp[39m: [35mDELETE single user: 12[39m
+2023-05-09 10:39:34:3934 [32minfo[39m: [32mDeleting user 12 from the database[39m
+2023-05-09 10:39:36:3936 [35mhttp[39m: [35mGET all users[39m
+2023-05-09 10:39:36:3936 [32minfo[39m: [32mGetting all users from the database[39m
+2023-05-09 10:39:43:3943 [35mhttp[39m: [35mGET all users[39m
+2023-05-09 10:39:43:3943 [32minfo[39m: [32mGetting all users from the database[39m
+2023-05-09 10:57:38:5738 [35mhttp[39m: [35mGET all users[39m
+2023-05-09 10:57:38:5738 [32minfo[39m: [32mGetting all users from the database[39m
+2023-05-09 10:58:19:5819 [35mhttp[39m: [35mGET all users[39m
+2023-05-09 10:58:19:5819 [32minfo[39m: [32mGetting all users from the database[39m
+2023-05-09 11:01:51:151 [35mhttp[39m: [35mGET all users[39m
+2023-05-09 11:01:51:151 [32minfo[39m: [32mGetting all users from the database[39m
+2023-05-09 11:02:13:213 [35mhttp[39m: [35mGET all users[39m
+2023-05-09 11:02:13:213 [32minfo[39m: [32mGetting all users from the database[39m
+2023-05-09 11:02:17:217 [35mhttp[39m: [35mGET all users[39m
+2023-05-09 11:02:17:217 [32minfo[39m: [32mGetting all users from the database[39m
+2023-05-09 11:03:53:353 [35mhttp[39m: [35mGET all users[39m
+2023-05-09 11:03:53:353 [32minfo[39m: [32mGetting all users from the database[39m
+2023-05-09 11:04:40:440 [35mhttp[39m: [35mGET all users[39m
+2023-05-09 11:04:40:440 [32minfo[39m: [32mGetting all users from the database[39m
+2023-05-09 11:05:12:512 [35mhttp[39m: [35mGET all users[39m
+2023-05-09 11:05:12:512 [32minfo[39m: [32mGetting all users from the database[39m
+2023-05-09 11:05:52:552 [35mhttp[39m: [35mGET all users[39m
+2023-05-09 11:05:52:552 [32minfo[39m: [32mGetting all users from the database[39m
+2023-05-09 11:06:43:643 [35mhttp[39m: [35mGET all users[39m
+2023-05-09 11:06:43:643 [32minfo[39m: [32mGetting all users from the database[39m
+2023-05-09 11:07:38:738 [35mhttp[39m: [35mGET all users[39m
+2023-05-09 11:07:38:738 [32minfo[39m: [32mGetting all users from the database[39m
+2023-05-09 11:08:07:87 [35mhttp[39m: [35mGET all users[39m
+2023-05-09 11:08:07:87 [32minfo[39m: [32mGetting all users from the database[39m
+2023-05-09 11:08:22:822 [35mhttp[39m: [35mPUT single user with id and new username: 13, notthree[39m
+2023-05-09 11:08:22:822 [32minfo[39m: [32mModifying user with id 13 name to notthree in the database[39m
+2023-05-09 11:08:24:824 [35mhttp[39m: [35mGET all users[39m
+2023-05-09 11:08:24:824 [32minfo[39m: [32mGetting all users from the database[39m
+2023-05-09 11:15:24:1524 [35mhttp[39m: [35mGET all users[39m
+2023-05-09 11:15:24:1524 [32minfo[39m: [32mGetting all users from the database[39m
+2023-05-09 11:15:39:1539 [35mhttp[39m: [35mGET all users[39m
+2023-05-09 11:15:39:1539 [32minfo[39m: [32mGetting all users from the database[39m
+2023-05-09 11:15:52:1552 [35mhttp[39m: [35mGET all users[39m
+2023-05-09 11:15:52:1552 [32minfo[39m: [32mGetting all users from the database[39m
+2023-05-09 11:16:05:165 [35mhttp[39m: [35mGET all users[39m
+2023-05-09 11:16:05:165 [32minfo[39m: [32mGetting all users from the database[39m
+2023-05-09 11:24:54:2454 [35mhttp[39m: [35mGET all users[39m
+2023-05-09 11:24:54:2454 [32minfo[39m: [32mGetting all users from the database[39m
+2023-05-09 11:25:06:256 [35mhttp[39m: [35mPUT single user with id and new username: 13, dfgrsefdsg[39m
+2023-05-09 11:25:06:256 [32minfo[39m: [32mModifying user with id 13 name to dfgrsefdsg in the database[39m
+2023-05-09 11:25:10:2510 [35mhttp[39m: [35mGET all users[39m
+2023-05-09 11:25:10:2510 [32minfo[39m: [32mGetting all users from the database[39m
+2023-05-09 11:27:24:2724 [35mhttp[39m: [35mGET all users[39m
+2023-05-09 11:27:24:2724 [32minfo[39m: [32mGetting all users from the database[39m
+2023-05-09 11:27:32:2732 [35mhttp[39m: [35mPUT single user with id and new username: 14, deleted[39m
+2023-05-09 11:27:32:2732 [32minfo[39m: [32mModifying user with id 14 name to deleted in the database[39m
+2023-05-09 11:27:34:2734 [35mhttp[39m: [35mGET all users[39m
+2023-05-09 11:27:34:2734 [32minfo[39m: [32mGetting all users from the database[39m
+2023-05-09 11:27:35:2735 [35mhttp[39m: [35mDELETE single user: 14[39m
+2023-05-09 11:27:35:2735 [32minfo[39m: [32mDeleting user 14 from the database[39m
+2023-05-09 11:27:36:2736 [35mhttp[39m: [35mGET all users[39m
+2023-05-09 11:27:36:2736 [32minfo[39m: [32mGetting all users from the database[39m
+2023-05-14 16:35:11:3511 [31merror[39m: [31mUnable to connect to MySQL.[39m
+2023-05-14 16:36:02:362 [31merror[39m: [31mUnable to connect to MySQL.[39m
+2023-05-14 16:36:35:3635 [32minfo[39m: [32mSuccessfully connected to database[39m
+2023-05-14 16:36:35:3635 [32minfo[39m: [32mListening on port: 3000[39m
+2023-05-14 16:38:04:384 [35mhttp[39m: [35mGET all users[39m
+2023-05-14 16:38:04:384 [32minfo[39m: [32mGetting all users from the database[39m
+2023-05-14 17:04:19:419 [35mhttp[39m: [35mGET single user id: 13[39m
+2023-05-14 17:04:19:419 [32minfo[39m: [32mGetting user 13 from the database[39m
+2023-05-14 17:04:21:421 [35mhttp[39m: [35mGET all users[39m
+2023-05-14 17:04:21:421 [32minfo[39m: [32mGetting all users from the database[39m

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<title>Lab 3: Exercise 1</title>
+</head>
+
+<body>
+ <form method="GET" action="https://www.google.com/search" onsubmit="return validateForm()">
+ <input type="text" name="q" id="search_string" />
+ <input type="submit" value="Search" />
+ </form>
+ <script type="text/javascript">
+    function validateForm() {
+        var search_string = document.getElementById("search_string").value;
+        if (search_string == "") {
+            alert("Search string is empty!");
+            return false;
+        } else {
+            return true;
+        }
+    }
+ </script>
+
+ </body>
+ 
+ </html>

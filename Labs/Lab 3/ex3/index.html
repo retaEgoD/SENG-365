@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>My Application</title>
+</head>
+
+<body>
+    <div id="root">
+    </div>
+    <!-- Import the React, React-Dom and Babel libraries from unpkg -->
+    <script type="application/javascript" src="https://unpkg.com/react@18.2.0/umd/react.production.min.js"></script>
+    <script type="application/javascript"
+    src="https://unpkg.com/react-dom@18.2.0/umd/react-dom.production.min.js"></script>
+    <script type="application/javascript" src="https://unpkg.com/babel-standalone@6.26.0/babel.js"></script>
+    <script type="text/babel">
+        
+        const calculate_total = () => {
+            return shopping_list.map(item => item.price).reduce((prev, next) => prev + next)
+        }
+
+        let shopping_list = [{name:"bread", price: 2.75}, {name: "milk", price: 2.50}, {name: "pasta", price: 1.99}]
+
+        const ShoppingList = () => {
+            let visible = true
+            
+            return (
+                <div>
+                    <h1>My Shopping List</h1>
+                    <ul>
+                        {shopping_list.map((item, index) => (
+                            <li key={index}>{item.name}: {item.price}</li>
+                            ))}
+                            
+                    </ul>
+                    <h3>Total: ${calculate_total()}</h3>
+                </div>
+            )
+        }
+        const rootElement = document.getElementById('root')
+        
+        function App(){
+            return (
+                <div>
+                    <ShoppingList/>
+                </div>
+                    
+            )
+        }
+        
+        ReactDOM.render(<App/>, rootElement)
+    </script>
+</body>
+
+</html>
