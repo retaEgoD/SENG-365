@@ -8,7 +8,7 @@ import {ViewIcon, MinusIcon} from '@chakra-ui/icons'
 const url = 'https://seng365.csse.canterbury.ac.nz/api/v1';
 
 
-function GenericField({type, value, handleChange, width}) {
+function GenericField({type, value, handleChange, width}: any) {
     return (
         <>
             <VStack>
@@ -19,7 +19,7 @@ function GenericField({type, value, handleChange, width}) {
     )
 }
 
-function PasswordField({password, handleChange}) {
+function PasswordField({password, handleChange}: any) {
     const [show, setShow] = useState(false);
     const handleClick = () => setShow(!show);
     
