@@ -1,6 +1,8 @@
-import { useState } from 'react'
+import { useState, useContext } from 'react'
 import axios from 'axios'
-import {Box, Heading, Text, Input, InputGroup, InputRightElement, IconButton, Button, HStack, VStack} from '@chakra-ui/react'
+import { AuthContext } from './AuthContext'
+
+import {Box, Heading, Text, Input, InputGroup, InputRightElement, IconButton, Button, HStack, VStack, useToast} from '@chakra-ui/react'
 import {Tabs, TabList, TabPanels, Tab, TabPanel} from '@chakra-ui/react'
 import {Modal, ModalOverlay, ModalContent, ModalHeader, ModalFooter, ModalBody, ModalCloseButton} from '@chakra-ui/react'
 import {ViewIcon, MinusIcon} from '@chakra-ui/icons'
@@ -49,7 +51,9 @@ function PasswordField({password, handleChange}: any) {
     )
 }
 
-function LoginBox() {
+function LoginBox({authContext}: any) {
+
+    const toast = useToast();
 
     const [loginEmail, setLoginEmail] = useState('');
     const [loginPassword, setLoginPassword] = useState('');
@@ -66,15 +70,49 @@ function LoginBox() {
     const handleLNameChange = (event: { target: { value: React.SetStateAction<string>; }; }) => setLName(event.target.value);
 
     function login() {
+        const {auth, setAuth} = useContext(AuthContext);
         const body = {'email': loginEmail, 'password': loginPassword};
-        axios.post(url + 'login', body)
-            .then();
+        axios.post(url + '/users/login', body)
+            .then((response) => {
+                toast({
+                    title: 'You\'re in, baby.',
+                    description: 'We\'ve successfully logged you in. Ungrateful bastard.',
+                    status: 'success',
+                    duration: 9000,
+                    isClosable: true
+                })
+                setAuth(response.data)
+            }, (error) => {
+                toast({
+                    title: 'An error has occured. All your fault.',
+                    description: `${error.toString()}`,
+                    status: 'error',
+                    duration: 9000,
+                    isClosable: true
+                })
+            });
     }
 
     function register() {
         const body = {'email': registerEmail, 'password': registerPassword, 'firstName': fName, 'lastName': lName};
-        axios.post(url + 'register', body)
-            .then();
+        axios.post(url + '/users/register', body)
+            .then((response) => {
+                toast({
+                    title: 'You\'re in, baby.',
+                    description: 'We\'ve created your account for you.',
+                    status: 'success',
+                    duration: 9000,
+                    isClosable: true
+                })
+            }, (error) => {
+                toast({
+                    title: 'An error has occured. You did this to yourself.',
+                    description: `${error.toString()}`,
+                    status: 'error',
+                    duration: 9000,
+                    isClosable: true
+                })
+            });
 
     }
 
@@ -94,7 +132,7 @@ function LoginBox() {
                         <PasswordField password={loginPassword} handleChange={handleLoginPasswordChange}/>
                         <HStack pt='1rem' justify='right'> 
                             <Button colorScheme='gray'>Cancel</Button>
-                            <Button colorScheme='teal'>Login</Button>
+                            <Button colorScheme='teal' onClick={login}>Login</Button>
                         </HStack>
                     </TabPanel>
                     <TabPanel>
@@ -107,7 +145,7 @@ function LoginBox() {
                         <PasswordField password={registerPassword} handleChange={handleRegisterPasswordChange}/>
                         <HStack pt='1rem' justify='right'> 
                             <Button colorScheme='gray'>Cancel</Button>
-                            <Button colorScheme='teal'>Register</Button>
+                            <Button colorScheme='teal' onClick={register}>Register</Button>
                         </HStack>
                     </TabPanel>
                 </TabPanels>
@@ -120,8 +158,6 @@ function LoginBox() {
 
 export default function LoginPage() {
     return (
-        <div>
-            <LoginBox />
-        </div>
+        <LoginBox />
     )
 }
