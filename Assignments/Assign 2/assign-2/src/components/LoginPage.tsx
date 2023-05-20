@@ -1,57 +1,65 @@
 import { useState, useContext } from 'react'
 import axios from 'axios'
-import { AuthContext } from './AuthContext'
 
 import {Box, Heading, Text, Input, InputGroup, InputRightElement, IconButton, Button, HStack, VStack, useToast} from '@chakra-ui/react'
 import {Tabs, TabList, TabPanels, Tab, TabPanel} from '@chakra-ui/react'
 import {Modal, ModalOverlay, ModalContent, ModalHeader, ModalFooter, ModalBody, ModalCloseButton} from '@chakra-ui/react'
 import {ViewIcon, MinusIcon} from '@chakra-ui/icons'
 
+import {
+    FormControl,
+    FormLabel,
+    FormErrorMessage,
+    FormHelperText,
+  } from '@chakra-ui/react'
+
 const url = 'https://seng365.csse.canterbury.ac.nz/api/v1';
 
 
-function GenericField({type, value, handleChange, width}: any) {
+function GenericField({fieldName, type, value, handleFieldChange}: any) {
     return (
         <>
-            <VStack>
-                <Text mb='12px' pt='20px'>{type}:</Text>
-                <Input pr={width+'rem'} placeholder={type + ', please.'} size='lg' value={value} onChange={handleChange} />
-            </VStack>
+            <FormControl pt='4' isRequired>
+                <FormLabel>{fieldName}</FormLabel>
+                    <Input type={type} placeholder={fieldName} value={value} onChange={handleFieldChange}/>
+            </FormControl>
         </>
     )
 }
 
-function PasswordField({password, handleChange}: any) {
+function PasswordField({password, setPassword}: any) {
     const [show, setShow] = useState(false);
     const handleClick = () => setShow(!show);
     
     return (
         <>
-            <Text mb='12px' pt='20px'>Password:</Text>
-            <InputGroup>
-                <Input 
-                    pr='20rem'
-                    placeholder='Password, please.' 
-                    size='lg'
-                    value={password}
-                    onChange={handleChange}
-                    type={show? 'text' : 'password'}
-                />
-                <InputRightElement pt='0.5rem' pr='0.5rem'>
-                    <IconButton 
-                        colorScheme='teal'
-                        variant={show? 'solid' : 'outline'}
-                        aria-label='Toggle Visibility' 
-                        icon={show ? <ViewIcon /> : <MinusIcon />}
-                        onClick={handleClick} 
+            <FormControl isRequired>
+                <FormLabel mb='12px' pt='20px'>Password:</FormLabel>
+                <InputGroup>
+                    <Input 
+                        pr='20rem'
+                        placeholder='Password' 
+                        size='lg'
+                        value={password}
+                        onChange={setPassword}
+                        type={show? 'text' : 'password'}
                     />
-                </InputRightElement>
-            </InputGroup>
+                    <InputRightElement pt='0.5rem' pr='0.5rem'>
+                        <IconButton 
+                            colorScheme='teal'
+                            variant={show? 'solid' : 'outline'}
+                            aria-label='Toggle Visibility' 
+                            icon={show ? <ViewIcon /> : <MinusIcon />}
+                            onClick={handleClick} 
+                        />
+                    </InputRightElement>
+                </InputGroup>
+            </FormControl>
         </>
     )
 }
 
-function LoginBox({authContext}: any) {
+function LoginBox() {
 
     const toast = useToast();
 
@@ -62,26 +70,25 @@ function LoginBox({authContext}: any) {
     const [fName, setFName] = useState('')
     const [lName, setLName] = useState('')
 
-    const handleLoginEmailChange = (event: { target: { value: React.SetStateAction<string>; }; }) => setLoginEmail(event.target.value)
-    const handleLoginPasswordChange = (event: { target: { value: React.SetStateAction<string>; }; }) => setLoginPassword(event.target.value)
-    const handleRegisterEmailChange = (event: { target: { value: React.SetStateAction<string>; }; }) => setRegisterEmail(event.target.value)
-    const handleRegisterPasswordChange = (event: { target: { value: React.SetStateAction<string>; }; }) => setRegisterPassword(event.target.value)
-    const handleFNameChange = (event: { target: { value: React.SetStateAction<string>; }; }) => setFName(event.target.value);
-    const handleLNameChange = (event: { target: { value: React.SetStateAction<string>; }; }) => setLName(event.target.value);
+    const handleLoginEmailChange = (event: { target: { value: any; }; }) => setLoginEmail(event.target.value)
+    const handleLoginPasswordChange = (event: { target: { value: any; }; }) => setLoginPassword(event.target.value)
+    const handleRegisterEmailChange = (event: { target: { value: any; }; }) => setRegisterEmail(event.target.value)
+    const handleRegisterPasswordChange = (event: { target: { value: any; }; }) => setRegisterPassword(event.target.value)
+    const handleFNameChange = (event: { target: { value: any; }; }) => setFName(event.target.value);
+    const handleLNameChange = (event: { target: { value: any; }; }) => setLName(event.target.value);
 
     function login() {
-        const {auth, setAuth} = useContext(AuthContext);
         const body = {'email': loginEmail, 'password': loginPassword};
         axios.post(url + '/users/login', body)
             .then((response) => {
                 toast({
-                    title: 'You\'re in, baby.',
-                    description: 'We\'ve successfully logged you in. Ungrateful bastard.',
+                    title: 'You\'re in.',
+                    description: 'Do you think your father is proud of you?',
                     status: 'success',
                     duration: 9000,
                     isClosable: true
                 })
-                setAuth(response.data)
+                localStorage.setItem("authToken", response.data.token)
             }, (error) => {
                 toast({
                     title: 'An error has occured. All your fault.',
@@ -96,9 +103,9 @@ function LoginBox({authContext}: any) {
     function register() {
         const body = {'email': registerEmail, 'password': registerPassword, 'firstName': fName, 'lastName': lName};
         axios.post(url + '/users/register', body)
-            .then((response) => {
+            .then((_) => {
                 toast({
-                    title: 'You\'re in, baby.',
+                    title: 'Registered.',
                     description: 'We\'ve created your account for you.',
                     status: 'success',
                     duration: 9000,
@@ -120,7 +127,7 @@ function LoginBox({authContext}: any) {
     return (
         <Box>
             <Tabs>
-                <TabList>
+                <TabList pb='1'>
                     <Tab>Login</Tab>
                     <Tab>Register</Tab>
                 </TabList>
@@ -128,8 +135,8 @@ function LoginBox({authContext}: any) {
                 <TabPanels>
                     <TabPanel>
                         <Heading>Login</Heading>
-                        <GenericField type="Email" value={loginEmail} handleChange={handleLoginEmailChange} width='20'/>
-                        <PasswordField password={loginPassword} handleChange={handleLoginPasswordChange}/>
+                        <GenericField fieldName="Email" type='email' value={loginEmail} handleFieldChange={handleLoginEmailChange} width='20'/>
+                        <PasswordField password={loginPassword} setPassword={handleLoginPasswordChange}/>
                         <HStack pt='1rem' justify='right'> 
                             <Button colorScheme='gray'>Cancel</Button>
                             <Button colorScheme='teal' onClick={login}>Login</Button>
@@ -138,11 +145,11 @@ function LoginBox({authContext}: any) {
                     <TabPanel>
                         <Heading>Register</Heading>
                         <HStack>
-                            <GenericField type="First name" value={fName} handleChange={handleFNameChange} width='2.9'/>
-                            <GenericField type="Last name" value={lName} handleChange={handleLNameChange} width='2.9'/>
+                            <GenericField fieldName="First name" type='text' value={fName} handleFieldChange={handleFNameChange}/>
+                            <GenericField fieldName="Last name" type='text' value={lName} handleFieldChange={handleLNameChange}/>
                         </HStack>
-                        <GenericField type="Email" value={registerEmail} handleChange={handleRegisterEmailChange} width='20'/>
-                        <PasswordField password={registerPassword} handleChange={handleRegisterPasswordChange}/>
+                        <GenericField fieldName="Email" type='email' value={registerEmail} handleFieldChange={handleRegisterEmailChange}/>
+                        <PasswordField password={registerPassword} setPassword={handleRegisterPasswordChange}/>
                         <HStack pt='1rem' justify='right'> 
                             <Button colorScheme='gray'>Cancel</Button>
                             <Button colorScheme='teal' onClick={register}>Register</Button>
