@@ -2,7 +2,7 @@ type Review = {
     /**
     * User id of reviewer.
     */
-    reviwerId: number,
+    reviewerId: number,
     /**
     * Review's rating of the film.
     */

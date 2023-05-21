@@ -1,10 +1,9 @@
-import { useState } from 'react'
 import { ChakraProvider } from '@chakra-ui/react';
 import {BrowserRouter as Router, Routes, Route} from "react-router-dom";
 import './App.css'
-import LoginPage from './components/LoginPage'
-import FilmsPage from './components/FilmsPage'
-import SingleFilm from './components/SingleFilm';
+import LoginPage from './Pages/LoginPage'
+import FilmsPage from './Pages/FilmsPage'
+import SingleFilm from './Pages/SingleFilm';
 
 function App() {
 
