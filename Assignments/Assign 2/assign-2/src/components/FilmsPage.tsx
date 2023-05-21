@@ -1,7 +1,8 @@
-import { useState, useContext, useEffect } from 'react'
+import { useState, useEffect } from 'react'
+import { Link as ReactLink } from "react-router-dom";
 import axios from 'axios'
 
-import {Box, Heading, Text, Input, InputGroup, InputRightElement, IconButton, Button, Stack, HStack, Image, Avatar, SlideFade, ScaleFade, Flex, Spacer } from '@chakra-ui/react'
+import {Box, Heading, Text, Input, InputGroup, InputRightElement, IconButton, Button, Stack, HStack, Image, Avatar, SlideFade, ScaleFade, Flex, Spacer, Link } from '@chakra-ui/react'
 import { Card, CardHeader, CardBody, CardFooter } from '@chakra-ui/react'
 
 import {
@@ -144,7 +145,7 @@ function Films({filmData}: any) {
     getGenres()
 
     const FilmList = () => {
-        return filmData.map((film: BasicFilm) =>
+        return filmData.slice(0+10*pageNo, 10*(pageNo+1)).map((film: BasicFilm) =>
             <AccordionItem>
                 <h2>
                 <AccordionButton _expanded={{bg: 'teal.400'}}>
@@ -200,15 +201,18 @@ function Films({filmData}: any) {
                             </Flex>
                         </CardBody>
                         <CardFooter>
-                        <Button variant='solid' colorScheme='teal'>
-                            See more
-                        </Button>
+                        <Link as={ReactLink} to={'/films/' + film.filmId}>
+                            <Button variant='solid' colorScheme='teal' >
+                                See more
+                            </Button>
+                        </Link>
+                            
                         </CardFooter>
                     </Stack>
                     </Card>
                 </AccordionPanel>
             </AccordionItem>
-        ).slice(0+10*pageNo, 10*(pageNo+1))
+        )
     }
 
 
@@ -220,8 +224,8 @@ function Films({filmData}: any) {
             <Spacer />
             <HStack justify='center' pt={10}>
                 <IconButton
-                isDisabled={pageNo === 0}
-                color={pageNo === 0 ? 'lightgray' : 'black'}
+                isDisabled={pageNo <= 0 || filmData.length === 0}
+                color={pageNo <= 0 || filmData.length === 0 ? 'lightgray' : 'black'}
                 variant='unstyled'
                 aria-label='Page 1'
                 size='lg'
@@ -230,8 +234,8 @@ function Films({filmData}: any) {
                 onClick={() => setPageNo(0)}
                 />
                 <IconButton
-                isDisabled={pageNo === 0}
-                color={pageNo === 0 ? 'lightgray' : 'black'}
+                isDisabled={pageNo <= 0 || filmData.length === 0}
+                color={pageNo <= 0 || filmData.length === 0 ? 'lightgray' : 'black'}
                 variant='unstyled'
                 aria-label='Previous Page'
                 size='lg'
@@ -241,8 +245,8 @@ function Films({filmData}: any) {
                 />
                 <Text fontWeight='semibold' fontSize='3xl'>{pageNo+1}</Text>
                 <IconButton
-                isDisabled={pageNo === Math.ceil(filmData.length/10)-1}
-                color={pageNo === Math.ceil(filmData.length/10)-1 ? 'lightgray' : 'black'}
+                isDisabled={pageNo >= Math.ceil(filmData.length/10)-1 || filmData.length === 0}
+                color={pageNo >= Math.ceil(filmData.length/10)-1 || filmData.length === 0 ? 'lightgray' : 'black'}
                 variant='unstyled'
                 aria-label='Next Page'
                 size='lg'
@@ -251,8 +255,8 @@ function Films({filmData}: any) {
                 onClick={() => setPageNo(pageNo+1)}
                 />
                 <IconButton
-                isDisabled={pageNo === Math.ceil(filmData.length/10)-1}
-                color={pageNo === Math.ceil(filmData.length/10)-1 ? 'lightgray' : 'black'}
+                isDisabled={pageNo >= Math.ceil(filmData.length/10)-1 || filmData.length === 0}
+                color={pageNo >= Math.ceil(filmData.length/10)-1 || filmData.length === 0 ? 'lightgray' : 'black'}
                 variant='unstyled'
                 aria-label='Page n'
                 size='lg'
@@ -266,7 +270,7 @@ function Films({filmData}: any) {
     )
 }
 
-export default function FilmPage() {
+export default function FilmsPage() {
     
     const [filmData, setFilmData] = useState <Array<BasicFilm>> ([]);
     const [searchTerm, setSearchTerm] = useState(null);
