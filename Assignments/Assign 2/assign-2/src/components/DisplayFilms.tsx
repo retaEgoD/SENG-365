@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useCallback } from 'react'
 import { Link as ReactLink } from "react-router-dom";
 import axios from 'axios'
 
@@ -92,11 +92,9 @@ export default function DisplayFilms({filmData, pageLength, h}: any) {
                             </Flex>
                         </CardBody>
                         <CardFooter>
-                        <Link as={ReactLink} to={'/films/' + film.filmId}>
-                            <Button variant='solid' colorScheme='teal'>
-                                See more
-                            </Button>
-                        </Link>
+                        <Button variant='solid' colorScheme='teal' onClick={() => {window.location.href='/films/' + film.filmId}}>
+                            See more
+                        </Button>
                             
                         </CardFooter>
                     </Stack>

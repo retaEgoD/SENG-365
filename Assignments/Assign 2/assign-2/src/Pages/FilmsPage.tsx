@@ -1,8 +1,9 @@
 import { useState, useEffect } from 'react'
 import axios from 'axios'
 import DisplayFilms from '../components/DisplayFilms'
+import Banner from '../components/Banner'
 
-import {Heading, Text, Input,  Button, HStack} from '@chakra-ui/react'
+import {Heading, Text, Input,  Button, HStack, Box} from '@chakra-ui/react'
 
 import {
     Menu,
@@ -13,7 +14,6 @@ import {
 
 import {ChevronDownIcon} from '@chakra-ui/icons'
 import {Select} from "chakra-react-select";
-import makeAnimated from "react-select/animated";
 
 
 const url = 'https://seng365.csse.canterbury.ac.nz/api/v1';
@@ -28,19 +28,17 @@ function Search({searchTerm, setSearchTerm,
         if (event.target.value === '') {
             setSearchTerm(null)
         }
-        useEffect(() => {
-            getFilms()
-        }, [])
     }
 
     const handleSortChange = (sort: any) => {
         setSort(sort);
-        useEffect(() => {
-            getFilms()
-        }, [])
     }
 
-    const animatedComponents = makeAnimated();
+    const handleTagsChange = (selected: any) => {
+        setTags(selected);
+    }
+
+
 
     const sortMap = new Map([
         ['ALPHABETICAL_ASC', 'Alphabetical, Asc'],
@@ -51,7 +49,6 @@ function Search({searchTerm, setSearchTerm,
         ['RATING_DESC', 'Rating, Desc']
     ]);
     const ageRatings = ['G', 'PG', 'M', 'R13', 'R16', 'R18', 'TBC'];
-
     const [genres, setGenres] = useState <Array<Genre>> ([]);
     
     useEffect(() => {
@@ -64,6 +61,11 @@ function Search({searchTerm, setSearchTerm,
                 setGenres(response.data)
         });
     }
+
+    useEffect(() => {
+        getFilms()
+    }, [searchTerm, sort, tags])
+
     
     const ageRatingOptions = {"label": "Age Rating",
                               "options": ageRatings.map(x => ({"value": x, "label": x}))};
@@ -73,7 +75,7 @@ function Search({searchTerm, setSearchTerm,
     
 
     return (
-        <>
+        <Box pt='10'>
             <Input 
                 variant='flushed'
                 pr='60rem'
@@ -111,10 +113,12 @@ function Search({searchTerm, setSearchTerm,
                     options={tagOptions}
                     placeholder="Select some tags..."
                     closeMenuOnSelect={false}
+                    value={tags}
+                    onChange={handleTagsChange}
                 />
             </HStack>
             
-        </>
+        </Box>
     )
 }
 
@@ -123,32 +127,40 @@ export default function FilmsPage() {
     const [filmData, setFilmData] = useState <Array<BasicFilm>> ([]);
     const [searchTerm, setSearchTerm] = useState(null);
     const [sort, setSort] = useState(null)
-    const [tags, setTags] = useState(null)
+    const [tags, setTags] = useState<Array<any>>([])
     
     const getFilms = () => {
+        const genres = tags.filter(x => typeof x.value === 'number').map(x => x.value)
+        const ageRatings = tags.filter(x => typeof x.value === 'string').map(x => x.value)
         axios.get(url + '/films', {
-            params: {q: searchTerm, sortBy: sort}})
+            params: {q: searchTerm, sortBy: sort, genreIds: genres, ageRatings: ageRatings}})
             .then((response) => {
                 setFilmData(response.data.films)
             })
         }
 
-    getFilms()
+    useEffect(() => {
+        getFilms()
+    }, [])
 
     return (
-        <>
-            <Search 
-                searchTerm={searchTerm} 
-                setSearchTerm={setSearchTerm} 
-                sort={sort} 
-                setSort={setSort} 
-                tags={tags} 
-                setTags={setTags} 
-                getFilms={getFilms}/>
-            <Heading textAlign='left' pb='0.5rem'>Results</Heading>
-            <Text as='i'>{filmData.length} results</Text>
-            <DisplayFilms filmData={filmData} pageLength={10} h='40rem'/>
-        </>
+        <Box className='page'>
+            <Banner />
+            <>
+                <Search 
+                    searchTerm={searchTerm} 
+                    setSearchTerm={setSearchTerm} 
+                    sort={sort} 
+                    setSort={setSort} 
+                    tags={tags} 
+                    setTags={setTags}
+                    getFilms={getFilms}/>
+                <Heading textAlign='left' pb='0.5rem'>Results</Heading>
+                <Text as='i'>{filmData.length} results</Text>
+                <DisplayFilms filmData={filmData} pageLength={10} h='40rem'/>
+            </>
+            
+        </Box>
     )
 
 }

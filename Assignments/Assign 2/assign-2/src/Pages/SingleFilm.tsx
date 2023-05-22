@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import { useParams } from "react-router-dom";
 import axios from 'axios'
 import DisplayFilms from '../components/DisplayFilms';
+import Banner from '../components/Banner';
 
 import {Box, Heading, Text, HStack, VStack, Stack, Divider, Image, Avatar, Flex, Spacer, useDisclosure, Button, Wrap } from '@chakra-ui/react'
 import { Card, CardHeader, CardBody, CardFooter } from '@chakra-ui/react'
@@ -48,7 +49,7 @@ function Reviews({film}: any) {
     }
     useEffect(() => {
         getReviews()
-    }, [])
+    }, [film])
 
     const ReviewList = () => {
         return reviews.map((review: Review) => 
@@ -130,7 +131,7 @@ function Reviews({film}: any) {
 function SimilarFilms({film, genre, directorFilms, genreFilms, pageLength}: any) {
     return (
         <Box>
-            <Heading pt='10'>Find Similar Films:</Heading>
+            <Heading pt='20'>Find Similar Films:</Heading>
             <Tabs>
                 <TabList>
                     <Tab>Films Directed By {film.directorFirstName + ' ' + film.directorLastName}</Tab>
@@ -161,9 +162,6 @@ export default function SingleFilm() {
         axios.get(url + '/films/' + id)
             .then((response) => {
                 setFilm(response.data)
-                getGenres()
-                getDirectorFilms()
-                getGenreFilms()
             })
     }
     const getGenres = () => {
@@ -192,15 +190,22 @@ export default function SingleFilm() {
         getFilm()
     }, [])
 
+    useEffect(() => {
+        getGenres()
+        getDirectorFilms()
+        getGenreFilms()
+    }, [film])
+
     return (
-        <>
-            <HStack textAlign='left' align='stretch' h='600px'>
+        <Box className='page'>
+            <Banner />
+            <HStack textAlign='left' align='stretch' h='700px' pt='10'>
                 <Image
                     objectFit='cover'
-                    maxW={{ base: '100%', sm: '600px' }}
-                    h='600'
+                    maxW={{ base: '100%', sm: '700px' }}
+                    h='700'
                     src={url + /films/ + film.filmId + '/image'}
-                    fallbackSrc='https://pic-bstarstatic.akamaized.net/ugc/9f4faf208a6a902e28bb97a443eac31c51037b6e.jpg@1200w_630h_1e_1c_1f.webp'
+                    fallbackSrc='https://media.tenor.com/2LRO8xWwmuAAAAAC/american-psycho-patrick-bateman.gif'
                     alt={film.title}/> 
                 <Divider orientation='vertical' px='1rem'/>
                 <Flex direction={['row', 'column']}>
@@ -214,7 +219,7 @@ export default function SingleFilm() {
                             </HStack>
                         }
                         {new Date(film.releaseDate) > new Date() ?
-                            <Text as='i' >Release Date: {film.releaseDate.slice(0, 10)}</Text> :
+                            <Text as='i'>Release Date: {film.releaseDate.slice(0, 10)}</Text> :
                             <Text as='i'>Released: {film.releaseDate.slice(0, 10)}</Text>}
                         <br/>
                         <Text as='i'>{genres.get(film.genreId)}</Text>
@@ -239,7 +244,7 @@ export default function SingleFilm() {
                 </Flex>
             </HStack>
             <SimilarFilms film={film} genre={genres.get(film.genreId)} directorFilms={directorFilms} genreFilms={genreFilms} pageLength={5}/>
-        </>
+        </Box>
     )
     
 
