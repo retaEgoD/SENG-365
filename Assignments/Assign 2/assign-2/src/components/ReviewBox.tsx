@@ -20,7 +20,7 @@ export default function ReviewBox({id, setReviewPosted}: any) {
     const [sliderValue, setSliderValue] = useState(5)
     const [showTooltip, setShowTooltip] = useState(false)
 
-    const authToken = localStorage.getItem('authToken');
+    const authToken = localStorage.authToken;
 
     const Toast = useToast()
     const data = reviewText === '' ? {rating: reviewRating} : {rating: reviewRating, review: reviewText}
@@ -61,6 +61,7 @@ export default function ReviewBox({id, setReviewPosted}: any) {
             <Heading pt='20'>Leave a Review:</Heading>
             <Box py='5'>
                 <Slider 
+                    w='400px'
                     defaultValue={5} 
                     min={1} 
                     max={10} 
@@ -82,7 +83,7 @@ export default function ReviewBox({id, setReviewPosted}: any) {
                     </SliderTrack>
                     <Tooltip
                         hasArrow
-                        bg='teal.300'
+                        bg='teal.400'
                         color='white'
                         placement='top'
                         isOpen={showTooltip}

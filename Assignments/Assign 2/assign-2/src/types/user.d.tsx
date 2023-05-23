@@ -10,15 +10,15 @@ type User = {
     /**
      * User first name as entered when created.
      */
-    first_name: string,
+    firstName: string,
     /**
      * User last name as entered when created.
      */
-    last_name: string,
+    lastName: string,
     /**
      * Name of the file of the user profile picture.
      */
-    image_filename: string,
+    imageFilename: string,
     /**
      * Hash of user password.
      */
@@ -26,5 +26,5 @@ type User = {
     /**
      * User auth token generated when logging in.
      */
-    auth_token: string
+    authToken: string
 }

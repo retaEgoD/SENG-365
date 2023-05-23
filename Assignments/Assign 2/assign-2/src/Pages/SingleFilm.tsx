@@ -134,9 +134,9 @@ function SimilarFilms({film, genre, directorFilms, genreFilms, pageLength}: any)
     return (
         <Box>
             <Heading pt='20'>Find Similar Films:</Heading>
-            <Tabs>
+            <Tabs isFitted>
                 <TabList>
-                    <Tab>Films Directed By {film.directorFirstName + ' ' + film.directorLastName}</Tab>
+                    <Tab >Films Directed By {film.directorFirstName + ' ' + film.directorLastName}</Tab>
                     <Tab>{genre} Films</Tab>
                 </TabList>
                 <TabPanels>
@@ -178,14 +178,14 @@ export default function SingleFilm() {
         axios.get(url + '/films'
                     , {params: {directorId: film.directorId}})
             .then((response) => {
-                setDirectorFilms(response.data.films)
+                setDirectorFilms(response.data.films.filter((x: BasicFilm) => x.filmId != film.filmId))
             })
         }
     const getGenreFilms = () => {
         axios.get(url + '/films'
                     , {params: {genreIds: film.genreId}})
             .then((response) => {
-                setGenreFilms(response.data.films)
+                setGenreFilms(response.data.films.filter((x: BasicFilm) => x.filmId != film.filmId))
             })
         }
 

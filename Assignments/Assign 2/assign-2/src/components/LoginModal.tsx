@@ -37,7 +37,6 @@ function PasswordField({password, setPassword}: any) {
                 <FormLabel mb='12px' pt='20px'>Password:</FormLabel>
                 <InputGroup>
                     <Input 
-                        pr='20rem'
                         placeholder='Password' 
                         size='lg'
                         value={password}
@@ -88,11 +87,12 @@ function LoginBox() {
                     duration: 9000,
                     isClosable: true
                 })
-                localStorage.setItem("authToken", response.data.token)
+                localStorage.authToken = response.data.token
+                localStorage.userId = JSON.stringify(response.data.userId)
             }, (error) => {
                 Toast({
                     title: 'An error has occured. All your fault.',
-                    description: `${error.toString()}`,
+                    description: `${error.response.statusText.toString()}`,
                     status: 'error',
                     duration: 9000,
                     isClosable: true
@@ -107,7 +107,7 @@ function LoginBox() {
             .then((_) => {
                 Toast({
                     title: 'Registered.',
-                    description: '... Why are you here?',
+                    description: '...Why are you here?',
                     status: 'success',
                     duration: 9000,
                     isClosable: true
@@ -123,7 +123,8 @@ function LoginBox() {
             });
         axios.post(url + '/users/login', loginBody)
         .then((response) => {
-            localStorage.setItem("authToken", response.data.token)
+            localStorage.authToken = response.data.token
+            localStorage.userId = JSON.stringify(response.data.userId)
         });
 
     }
@@ -139,7 +140,6 @@ function LoginBox() {
 
                 <TabPanels>
                     <TabPanel>
-                        <Heading>Login</Heading>
                         <GenericField fieldName="Email" type='email' value={loginEmail} handleFieldChange={handleLoginEmailChange} width='20'/>
                         <PasswordField password={loginPassword} setPassword={handleLoginPasswordChange}/>
                         <HStack pt='1rem' justify='right'> 
@@ -148,7 +148,6 @@ function LoginBox() {
                         </HStack>
                     </TabPanel>
                     <TabPanel>
-                        <Heading>Register</Heading>
                         <HStack>
                             <GenericField fieldName="First name" type='text' value={fName} handleFieldChange={handleFNameChange}/>
                             <GenericField fieldName="Last name" type='text' value={lName} handleFieldChange={handleLNameChange}/>
@@ -168,8 +167,20 @@ function LoginBox() {
     )
 }
 
-export default function LoginPage() {
+export default function LoginModal({isOpen, onClose}: any) {
     return (
-        <LoginBox />
+        <Modal isOpen={isOpen} onClose={onClose}>
+        <ModalOverlay />
+        <ModalContent>
+          <ModalHeader fontSize='3xl' fontStyle='italic'>Login/Register</ModalHeader>
+          <ModalCloseButton />
+          <ModalBody>
+                <LoginBox />
+          </ModalBody>
+
+          <ModalFooter>
+          </ModalFooter>
+        </ModalContent>
+      </Modal>
     )
 }

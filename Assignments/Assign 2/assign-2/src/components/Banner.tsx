@@ -1,5 +1,5 @@
 import useWindowDimensions from '../hooks/useWindowDimensions'
-import { Center, Flex, Heading, IconButton, Box, Fade, SlideFade, useDisclosure } from '@chakra-ui/react'
+import { Center, Flex, Heading, IconButton, Box, Fade, Slide, useDisclosure } from '@chakra-ui/react'
 import { HamburgerIcon } from '@chakra-ui/icons'
 import Sidebar from './SideBar';
 
@@ -20,28 +20,37 @@ export default function Banner() {
                             'DON\'T MAKE ME DO THE SENG 365 PROJECT AGAIN (WORSE THAN DEATH)']
 
     return (
-        <Box bg='teal' width='100vw' h='100' marginLeft={-(width-1280)/2}>
-            <Sidebar isOpen={isOpen} onClose={onClose}/>
-            <Flex h='100'>
-                <Center>
-                    {/* <Slide in={true} direction='left'> */}
-                        <IconButton
-                            borderLeftRadius='0'
-                            borderRightRadius='full'
-                            bg='teal.300'
-                            aria-label='SideBar'
-                            size='lg'
-                            icon={<HamburgerIcon />}
-                            onClick={onOpen}/>
-                    {/* </Slide> */}
-                    <Fade in={true} >
-                        <Heading color='white' fontStyle='italic' fontFamily={Math.random() > 0.95 ? 'cursive' : 'serif'} marginLeft='600'>
-                            PLEASE {bannerMessages[Math.floor(Math.random() * bannerMessages.length)]}
-                        </Heading>
-                    </Fade>
+        <Box>
+            {/* <Slide in={true} direction='left' style={{ zIndex: 0}}> */}
+            <IconButton
+                position='fixed'
+                ml='-50vw'
+                mt='120px'
+                borderLeftRadius='0'
+                borderRightRadius='full'
+                bg='teal.300'
+                aria-label='SideBar'
+                size='lg'
+                icon={<HamburgerIcon />}
+                onClick={onOpen}/>
+            {/* </Slide> */}
+            
+            <Box bg='teal' width='100vw' h='100' marginLeft={-(width-1280)/2}>
+                <Sidebar isOpen={isOpen} onClose={onClose}/>
+                <Flex h='100'>
                     
-                </Center>
-            </Flex>
+                    <Center>
+                        
+                        <Fade in={true} >
+                            <Heading color='white' fontStyle='italic' fontFamily={Math.random() > 0.95 ? 'cursive' : 'serif'} marginLeft={(width-1280)/2}>
+                                PLEASE {bannerMessages[Math.floor(Math.random() * bannerMessages.length)]}
+                            </Heading>
+                        </Fade>
+                        
+                    </Center>
+                </Flex>
+            </Box>
         </Box>
+        
     )
 }

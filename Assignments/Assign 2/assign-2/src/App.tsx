@@ -1,6 +1,6 @@
 import {BrowserRouter as Router, Routes, Route} from "react-router-dom";
 import './App.css'
-import LoginPage from './Pages/LoginPage'
+import LoginPage from './components/LoginModal'
 import FilmsPage from './Pages/FilmsPage'
 import SingleFilm from './Pages/SingleFilm';
 
