@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import axios from 'axios'
 import DisplayFilms from '../components/DisplayFilms';
 import Banner from '../components/Banner';
+import ReviewBox from '../components/ReviewBox';
 
 import {Box, Heading, Text, HStack, VStack, Stack, Divider, Image, Avatar, Flex, Spacer, useDisclosure, Button, Wrap } from '@chakra-ui/react'
 import { Card, CardHeader, CardBody, CardFooter } from '@chakra-ui/react'
@@ -36,7 +37,7 @@ import {StarIcon} from '@chakra-ui/icons'
 
 const url = 'https://seng365.csse.canterbury.ac.nz/api/v1';
 
-function Reviews({film}: any) {
+function Reviews({film, reviewPosted}: any) {
 
     const { isOpen, onOpen, onClose } = useDisclosure()
     const [reviews, setReviews] = useState <Array<Review>> ([])
@@ -49,14 +50,14 @@ function Reviews({film}: any) {
     }
     useEffect(() => {
         getReviews()
-    }, [film])
+    }, [film, reviewPosted])
 
     const ReviewList = () => {
         return reviews.map((review: Review) => 
         <Tr key={review.reviewerId}>
             <Td>
 
-                <Card maxW='sm'>
+                <Card maxW='4xl'>
                     <CardHeader>
                         <HStack>
                             <Avatar 
@@ -90,15 +91,14 @@ function Reviews({film}: any) {
             isOpen={isOpen}
             placement='right'
             onClose={onClose}
-            size='md'
+            size='xl'
           >
             <DrawerOverlay />
             <DrawerContent>
                 <DrawerCloseButton />
-                <DrawerHeader>
+                <DrawerHeader fontSize='3xl'>
                     Reviews for: <Text as='i'>{film.title}</Text>
-                </DrawerHeader>
-                <Box pl='6'>
+                    <Box pl='3' fontSize='md' fontWeight='normal'>
                     {reviews.length === 0 ? 
                         <Text>No ratings for this film yet.</Text>:
                         <>
@@ -110,6 +110,8 @@ function Reviews({film}: any) {
                         </>
                     }
                 </Box>
+                </DrawerHeader>
+                
                 <DrawerBody>
                 <TableContainer>
                     <Table variant='simple'>
@@ -157,6 +159,7 @@ export default function SingleFilm() {
     const [genres, setGenres] = useState <Map<number, string>> (new Map([]));
     const [directorFilms, setDirectorFilms] = useState<Array<BasicFilm>> ([]);
     const [genreFilms, setGenreFilms] = useState<Array<BasicFilm>> ([]);
+    const [reviewPosted, setReviewPosted] = useState(false);
 
     const getFilm = () => { 
         axios.get(url + '/films/' + id)
@@ -240,9 +243,10 @@ export default function SingleFilm() {
                             <Text fontSize='28' pr='6'>{film.directorFirstName + ' ' + film.directorLastName} </Text>
                         </Box>
                     </HStack>
-                    <Reviews film={film}/>
+                    <Reviews film={film} reviewPosted={reviewPosted}/>
                 </Flex>
             </HStack>
+            <ReviewBox id={id} setReviewPosted={setReviewPosted}/>
             <SimilarFilms film={film} genre={genres.get(film.genreId)} directorFilms={directorFilms} genreFilms={genreFilms} pageLength={5}/>
         </Box>
     )

@@ -1,8 +1,7 @@
 import { useState, useEffect, useCallback } from 'react'
-import { Link as ReactLink } from "react-router-dom";
 import axios from 'axios'
 
-import {Box, Heading, Text, IconButton, Button, Stack, HStack, Image, Avatar, Flex, Spacer, Link } from '@chakra-ui/react'
+import {Box, Heading, Text, IconButton, Button, Stack, HStack, Image, Avatar, Flex, Spacer, SlideFade } from '@chakra-ui/react'
 import { Card, CardHeader, CardBody, CardFooter } from '@chakra-ui/react'
 
 
@@ -30,6 +29,7 @@ export default function DisplayFilms({filmData, pageLength, h}: any) {
                 setGenres(new Map(response.data.map((x: Genre)  => [x.genreId, x.name])));
         });
     }
+
 
     useEffect(() => {
         getGenres()
@@ -115,7 +115,7 @@ export default function DisplayFilms({filmData, pageLength, h}: any) {
                 <IconButton
                 isDisabled={pageNo <= 0 || filmData.length === 0}
                 color={pageNo <= 0 || filmData.length === 0 ? 'lightgray' : 'black'}
-                variant='unstyled'
+                variant='ghost'
                 aria-label='Page 1'
                 size='lg'
                 borderRadius='full'
@@ -125,18 +125,21 @@ export default function DisplayFilms({filmData, pageLength, h}: any) {
                 <IconButton
                 isDisabled={pageNo <= 0 || filmData.length === 0}
                 color={pageNo <= 0 || filmData.length === 0 ? 'lightgray' : 'black'}
-                variant='unstyled'
+                variant='ghost'
                 aria-label='Previous Page'
                 size='lg'
                 borderRadius='full'
                 icon={<ChevronLeftIcon />}
                 onClick={() => setPageNo(pageNo-1)}
                 />
-                <Text fontWeight='semibold' fontSize='3xl'>{pageNo+1}</Text>
+                <SlideFade in={true}>
+                    <Text fontWeight='semibold' fontSize='3xl'>{pageNo+1}</Text>
+                </SlideFade>
+                
                 <IconButton
                 isDisabled={pageNo >= Math.ceil(filmData.length/pageLength)-1 || filmData.length === 0}
                 color={pageNo >= Math.ceil(filmData.length/pageLength)-1 || filmData.length === 0 ? 'lightgray' : 'black'}
-                variant='unstyled'
+                variant='ghost'
                 aria-label='Next Page'
                 size='lg'
                 borderRadius='full'
@@ -146,7 +149,7 @@ export default function DisplayFilms({filmData, pageLength, h}: any) {
                 <IconButton
                 isDisabled={pageNo >= Math.ceil(filmData.length/pageLength)-1 || filmData.length === 0}
                 color={pageNo >= Math.ceil(filmData.length/pageLength)-1 || filmData.length === 0 ? 'lightgray' : 'black'}
-                variant='unstyled'
+                variant='ghost'
                 aria-label='Page n'
                 size='lg'
                 borderRadius='full'

@@ -61,7 +61,7 @@ function PasswordField({password, setPassword}: any) {
 
 function LoginBox() {
 
-    const toast = useToast();
+    const Toast = useToast();
 
     const [loginEmail, setLoginEmail] = useState('');
     const [loginPassword, setLoginPassword] = useState('');
@@ -81,7 +81,7 @@ function LoginBox() {
         const body = {'email': loginEmail, 'password': loginPassword};
         axios.post(url + '/users/login', body)
             .then((response) => {
-                toast({
+                Toast({
                     title: 'You\'re in.',
                     description: 'Do you think your father is proud of you?',
                     status: 'success',
@@ -90,7 +90,7 @@ function LoginBox() {
                 })
                 localStorage.setItem("authToken", response.data.token)
             }, (error) => {
-                toast({
+                Toast({
                     title: 'An error has occured. All your fault.',
                     description: `${error.toString()}`,
                     status: 'error',
@@ -101,25 +101,30 @@ function LoginBox() {
     }
 
     function register() {
-        const body = {'email': registerEmail, 'password': registerPassword, 'firstName': fName, 'lastName': lName};
-        axios.post(url + '/users/register', body)
+        const registerBody = {'email': registerEmail, 'password': registerPassword, 'firstName': fName, 'lastName': lName};
+        const loginBody = {'email': loginEmail, 'password': loginPassword};
+        axios.post(url + '/users/register', registerBody)
             .then((_) => {
-                toast({
+                Toast({
                     title: 'Registered.',
-                    description: 'We\'ve created your account for you.',
+                    description: '... Why are you here?',
                     status: 'success',
                     duration: 9000,
                     isClosable: true
                 })
             }, (error) => {
-                toast({
-                    title: 'An error has occured. You did this to yourself.',
+                Toast({
+                    title: 'Something went wrong. Here\'s a helpful error message.',
                     description: `${error.toString()}`,
                     status: 'error',
                     duration: 9000,
                     isClosable: true
                 })
             });
+        axios.post(url + '/users/login', loginBody)
+        .then((response) => {
+            localStorage.setItem("authToken", response.data.token)
+        });
 
     }
 
