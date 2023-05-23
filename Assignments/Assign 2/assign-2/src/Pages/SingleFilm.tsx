@@ -4,6 +4,7 @@ import axios from 'axios'
 import DisplayFilms from '../components/DisplayFilms';
 import Banner from '../components/Banner';
 import ReviewBox from '../components/ReviewBox';
+import FallbackAvatar from '../components/FallbackAvatar';
 
 import {Box, Heading, Text, HStack, VStack, Stack, Divider, Image, Avatar, Flex, Spacer, useDisclosure, Button, Wrap } from '@chakra-ui/react'
 import { Card, CardHeader, CardBody, CardFooter } from '@chakra-ui/react'
@@ -60,7 +61,7 @@ function Reviews({film, reviewPosted}: any) {
                 <Card maxW='4xl'>
                     <CardHeader>
                         <HStack>
-                            <Avatar 
+                            <FallbackAvatar 
                             name={review.reviewerFirstName + ' ' + review.reviewerLastName} 
                             src={url + '/users/' + review.reviewerId + '/image'}
                             />
@@ -133,7 +134,7 @@ function Reviews({film, reviewPosted}: any) {
 function SimilarFilms({film, genre, directorFilms, genreFilms, pageLength}: any) {
     return (
         <Box>
-            <Heading pt='20'>Find Similar Films:</Heading>
+            <Heading pt='20' pb='4' fontStyle='italic' fontWeight='light' size='2xl'>Find Similar Films:</Heading>
             <Tabs isFitted>
                 <TabList>
                     <Tab >Films Directed By {film.directorFirstName + ' ' + film.directorLastName}</Tab>
@@ -213,7 +214,7 @@ export default function SingleFilm() {
                 <Divider orientation='vertical' px='1rem'/>
                 <Flex direction={['row', 'column']}>
                     <Box>
-                        <Heading size='3xl' pb='4'>{film.title}</Heading>
+                        <Heading size='3xl' pb='4' fontStyle='italic' fontWeight='light'>{film.title}</Heading>
                         {film.rating === 0 ? 
                             <Text >Unrated</Text>:
                             <HStack>
@@ -234,7 +235,7 @@ export default function SingleFilm() {
                     <Text>{film.description}</Text>
                     <Spacer />
                     <HStack pb='5'>
-                        <Avatar 
+                        <FallbackAvatar 
                             name={film.directorFirstName + ' ' + film.directorLastName} 
                             src={url + '/users/' + film.directorId + '/image'}
                             size='xl'/>

@@ -1,6 +1,8 @@
 import { useState, useEffect, useCallback } from 'react'
 import axios from 'axios'
 
+import FallbackAvatar from './FallbackAvatar'
+
 import {Box, Heading, Text, IconButton, Button, Stack, HStack, Image, Avatar, Flex, Spacer, SlideFade } from '@chakra-ui/react'
 import { Card, CardHeader, CardBody, CardFooter } from '@chakra-ui/react'
 
@@ -17,6 +19,8 @@ import {StarIcon, ChevronLeftIcon, ArrowLeftIcon, ChevronRightIcon, ArrowRightIc
 
 
 const url = 'https://seng365.csse.canterbury.ac.nz/api/v1';
+
+
 
 export default function DisplayFilms({filmData, pageLength, h}: any) {
 
@@ -71,7 +75,7 @@ export default function DisplayFilms({filmData, pageLength, h}: any) {
                         <CardBody textAlign='left'>
                             <Flex w='55.5rem'>
                                 <Box>
-                                    <Heading size='xl'>{film.title}</Heading>
+                                    <Heading size='xl' fontStyle='italic' fontWeight='light'>{film.title}</Heading>
                                         {new Date(film.releaseDate) > new Date() ?
                                             <Text as='i'>Release Date: {film.releaseDate.slice(0, pageLength)}</Text> :
                                             <Text as='i'>Released: {film.releaseDate.slice(0, pageLength)}</Text>}
@@ -84,7 +88,7 @@ export default function DisplayFilms({filmData, pageLength, h}: any) {
                                         <Text as='i' fontSize='12'>Directed by: </Text>
                                         <Text fontSize='28' pr='6'>{film.directorFirstName + ' ' + film.directorLastName} </Text>
                                     </Box>
-                                    <Avatar 
+                                    <FallbackAvatar 
                                         name={film.directorFirstName + film.directorLastName} 
                                         src={url + '/users/' + film.directorId + '/image'}
                                         size='xl'/>

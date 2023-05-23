@@ -39,7 +39,6 @@ export default function ReviewBox({id, setReviewPosted}: any) {
                     isClosable: true
                 })
             }, (error) => {
-                console.log({rating: reviewRating, review: reviewText === '' ? null : reviewText})
                 Toast({
                     title: 'Something went wrong. Here\'s a helpful error message.',
                     description: `${error.toString()}`,
@@ -58,7 +57,7 @@ export default function ReviewBox({id, setReviewPosted}: any) {
 
     return (
         <Box>
-            <Heading pt='20'>Leave a Review:</Heading>
+            <Heading pt='20' fontStyle='italic' fontWeight='light' size='2xl'>Leave a Review:</Heading>
             <Box py='5'>
                 <Slider 
                     w='400px'

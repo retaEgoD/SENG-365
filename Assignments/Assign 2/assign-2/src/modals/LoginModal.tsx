@@ -20,7 +20,7 @@ function GenericField({fieldName, type, value, handleFieldChange}: any) {
     return (
         <>
             <FormControl pt='4' isRequired>
-                <FormLabel>{fieldName}</FormLabel>
+                <FormLabel>{fieldName}:</FormLabel>
                     <Input type={type} placeholder={fieldName} value={value} onChange={handleFieldChange}/>
             </FormControl>
         </>
@@ -53,12 +53,13 @@ function PasswordField({password, setPassword}: any) {
                         />
                     </InputRightElement>
                 </InputGroup>
+                <FormHelperText>6 or more characters.</FormHelperText>
             </FormControl>
         </>
     )
 }
 
-function LoginBox() {
+function LoginBox({onClose}: any) {
 
     const Toast = useToast();
 
@@ -82,13 +83,14 @@ function LoginBox() {
             .then((response) => {
                 Toast({
                     title: 'You\'re in.',
-                    description: 'Do you think your father is proud of you?',
+                    description: 'Do you think your father\'s proud of you?',
                     status: 'success',
                     duration: 9000,
                     isClosable: true
                 })
                 localStorage.authToken = response.data.token
                 localStorage.userId = JSON.stringify(response.data.userId)
+                onClose();
             }, (error) => {
                 Toast({
                     title: 'An error has occured. All your fault.',
@@ -102,7 +104,7 @@ function LoginBox() {
 
     function register() {
         const registerBody = {'email': registerEmail, 'password': registerPassword, 'firstName': fName, 'lastName': lName};
-        const loginBody = {'email': loginEmail, 'password': loginPassword};
+        const loginBody = {'email': registerEmail, 'password': registerPassword};
         axios.post(url + '/users/register', registerBody)
             .then((_) => {
                 Toast({
@@ -112,6 +114,12 @@ function LoginBox() {
                     duration: 9000,
                     isClosable: true
                 })
+                axios.post(url + '/users/login', loginBody)
+                .then((response) => {
+                    localStorage.authToken = response.data.token
+                    localStorage.userId = JSON.stringify(response.data.userId)
+                    onClose();
+                });
             }, (error) => {
                 Toast({
                     title: 'Something went wrong. Here\'s a helpful error message.',
@@ -121,11 +129,6 @@ function LoginBox() {
                     isClosable: true
                 })
             });
-        axios.post(url + '/users/login', loginBody)
-        .then((response) => {
-            localStorage.authToken = response.data.token
-            localStorage.userId = JSON.stringify(response.data.userId)
-        });
 
     }
 
@@ -143,7 +146,7 @@ function LoginBox() {
                         <GenericField fieldName="Email" type='email' value={loginEmail} handleFieldChange={handleLoginEmailChange} width='20'/>
                         <PasswordField password={loginPassword} setPassword={handleLoginPasswordChange}/>
                         <HStack pt='1rem' justify='right'> 
-                            <Button colorScheme='gray'>Cancel</Button>
+                            <Button colorScheme='gray' onClick={onClose}>Cancel</Button>
                             <Button colorScheme='teal' onClick={login}>Login</Button>
                         </HStack>
                     </TabPanel>
@@ -155,7 +158,7 @@ function LoginBox() {
                         <GenericField fieldName="Email" type='email' value={registerEmail} handleFieldChange={handleRegisterEmailChange}/>
                         <PasswordField password={registerPassword} setPassword={handleRegisterPasswordChange}/>
                         <HStack pt='1rem' justify='right'> 
-                            <Button colorScheme='gray'>Cancel</Button>
+                            <Button colorScheme='gray' onClick={onClose}>Cancel</Button>
                             <Button colorScheme='teal' onClick={register}>Register</Button>
                         </HStack>
                     </TabPanel>
@@ -175,7 +178,7 @@ export default function LoginModal({isOpen, onClose}: any) {
           <ModalHeader fontSize='3xl' fontStyle='italic'>Login/Register</ModalHeader>
           <ModalCloseButton />
           <ModalBody>
-                <LoginBox />
+                <LoginBox onClose={onClose}/>
           </ModalBody>
 
           <ModalFooter>

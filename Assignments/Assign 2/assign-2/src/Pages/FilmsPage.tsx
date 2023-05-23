@@ -125,7 +125,7 @@ function Search({searchTerm, setSearchTerm,
 export default function FilmsPage() {
     
     const [filmData, setFilmData] = useState <Array<BasicFilm>> ([]);
-    const [searchTerm, setSearchTerm] = useState(null);
+    const [searchTerm, setSearchTerm] = useState('');
     const [sort, setSort] = useState(null)
     const [tags, setTags] = useState<Array<any>>([])
     
@@ -133,7 +133,7 @@ export default function FilmsPage() {
         const genres = tags.filter(x => typeof x.value === 'number').map(x => x.value)
         const ageRatings = tags.filter(x => typeof x.value === 'string').map(x => x.value)
         axios.get(url + '/films', {
-            params: {q: searchTerm, sortBy: sort, genreIds: genres, ageRatings: ageRatings}})
+            params: {q: searchTerm === '' ? null : searchTerm, sortBy: sort, genreIds: genres, ageRatings: ageRatings}})
             .then((response) => {
                 setFilmData(response.data.films)
             })
@@ -155,7 +155,8 @@ export default function FilmsPage() {
                     tags={tags} 
                     setTags={setTags}
                     getFilms={getFilms}/>
-                <Heading textAlign='left' pb='0.5rem'>Results</Heading>
+                <Heading textAlign='left' pb='0.5rem' fontStyle='italic' fontWeight='light' fontSize='5xl'>Results</Heading>
+                <Text textAlign='left'>Click a film to expand.</Text>
                 <Text as='i'>{filmData.length} results</Text>
                 <DisplayFilms filmData={filmData} pageLength={10} h='40rem'/>
             </>

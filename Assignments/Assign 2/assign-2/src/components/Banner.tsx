@@ -17,7 +17,9 @@ export default function Banner() {
                             'FIRE ME INTO SPACE',
                             'SQUISH ME IN A HYDRAULIC PRESS',
                             'PUT ME IN A BATHTUB WITH A TOASTER. THANKS IN ADVANCE.',
-                            'DON\'T MAKE ME DO THE SENG 365 PROJECT AGAIN (WORSE THAN DEATH)']
+                            'DON\'T MAKE ME DO THE SENG 365 PROJECT AGAIN (WORSE THAN DEATH)',
+                            'POUR $100,000 IN PENNIES ONTO ME',
+                            'DO NOT TAKE ANY OF THIS SERIOUSLY']
 
     return (
         <Box>
