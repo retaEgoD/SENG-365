@@ -35,7 +35,7 @@ export default function FilmDrawer({isOpen, onClose}: any) {
     const [description, setDescription] = useState('');
     const [genre, setGenre] = useState(-1);
     const [imageFile, setImageFile] = useState('');
-    const [imageUrl, setImageUrl] = useState('https://i.imgflip.com/7mxs97.jpg');
+    const [imageUrl, setImageUrl] = useState('https://i.imgflip.com/7my1ae.jpg');
     const [releaseDate, setReleaseDate] = useState('');
     const [ageRating, setAgeRating] = useState('');
     const [runtime, setRuntime] = useState(0);
@@ -92,14 +92,14 @@ export default function FilmDrawer({isOpen, onClose}: any) {
                       <RequiredField fieldName='Description' type='text' value={description} handleFieldChange={handleDescriptionChange}/>
                       <FormControl isRequired pt='4'>
                         <FormLabel>Genre:</FormLabel>
-                        <Select placeholder='Genre' value={genre} onChange={handleGenreChange} color='black'>
+                        <Select placeholder='Select a genre...' value={genre} onChange={handleGenreChange} color='black'>
                           {genreOptions()}
                         </Select>
                       </FormControl>
                       <UnrequiredField fieldName='Release Date' type='text' value={releaseDate} handleFieldChange={handleReleaseDateChange}/>
                       <FormControl  pt='4'>
                         <FormLabel>Age Rating:</FormLabel>
-                        <Select placeholder='Age Rating' value={ageRating} onChange={handleAgeRatingChange} color='black'>
+                        <Select placeholder='Select an age rating...' value={ageRating} onChange={handleAgeRatingChange} color='black'>
                           {ageRatings.map(option => (
                             <option key={option} value={option}>{option}</option>
                           ))}
