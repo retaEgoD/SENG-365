@@ -1,5 +1,6 @@
-import { useState, useContext } from 'react'
+import { useState } from 'react'
 import axios from 'axios'
+import RequiredField from '../components/RequiredField'
 
 import {Box, Heading, Text, Input, InputGroup, InputRightElement, IconButton, Button, HStack, VStack, useToast} from '@chakra-ui/react'
 import {Tabs, TabList, TabPanels, Tab, TabPanel} from '@chakra-ui/react'
@@ -14,18 +15,6 @@ import {
   } from '@chakra-ui/react'
 
 const url = 'https://seng365.csse.canterbury.ac.nz/api/v1';
-
-
-function GenericField({fieldName, type, value, handleFieldChange}: any) {
-    return (
-        <>
-            <FormControl pt='4' isRequired>
-                <FormLabel>{fieldName}:</FormLabel>
-                    <Input type={type} placeholder={fieldName} value={value} onChange={handleFieldChange}/>
-            </FormControl>
-        </>
-    )
-}
 
 function PasswordField({password, setPassword}: any) {
     const [show, setShow] = useState(false);
@@ -143,7 +132,7 @@ function LoginBox({onClose}: any) {
 
                 <TabPanels>
                     <TabPanel>
-                        <GenericField fieldName="Email" type='email' value={loginEmail} handleFieldChange={handleLoginEmailChange} width='20'/>
+                        <RequiredField fieldName="Email" type='email' value={loginEmail} handleFieldChange={handleLoginEmailChange} width='20'/>
                         <PasswordField password={loginPassword} setPassword={handleLoginPasswordChange}/>
                         <HStack pt='1rem' justify='right'> 
                             <Button colorScheme='gray' onClick={onClose}>Cancel</Button>
@@ -152,10 +141,10 @@ function LoginBox({onClose}: any) {
                     </TabPanel>
                     <TabPanel>
                         <HStack>
-                            <GenericField fieldName="First name" type='text' value={fName} handleFieldChange={handleFNameChange}/>
-                            <GenericField fieldName="Last name" type='text' value={lName} handleFieldChange={handleLNameChange}/>
+                            <RequiredField fieldName="First name" type='text' value={fName} handleFieldChange={handleFNameChange}/>
+                            <RequiredField fieldName="Last name" type='text' value={lName} handleFieldChange={handleLNameChange}/>
                         </HStack>
-                        <GenericField fieldName="Email" type='email' value={registerEmail} handleFieldChange={handleRegisterEmailChange}/>
+                        <RequiredField fieldName="Email" type='email' value={registerEmail} handleFieldChange={handleRegisterEmailChange}/>
                         <PasswordField password={registerPassword} setPassword={handleRegisterPasswordChange}/>
                         <HStack pt='1rem' justify='right'> 
                             <Button colorScheme='gray' onClick={onClose}>Cancel</Button>

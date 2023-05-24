@@ -23,7 +23,6 @@ export default function Banner() {
 
     return (
         <Box>
-            {/* <Slide in={true} direction='left' style={{ zIndex: 0}}> */}
             <IconButton
                 position='fixed'
                 ml='-50vw'
@@ -35,7 +34,6 @@ export default function Banner() {
                 size='lg'
                 icon={<HamburgerIcon />}
                 onClick={onOpen}/>
-            {/* </Slide> */}
             
             <Box bg='teal' width='100vw' h='100' marginLeft={-(width-1280)/2}>
                 <Sidebar isOpen={isOpen} onClose={onClose}/>
@@ -44,7 +42,7 @@ export default function Banner() {
                     <Center>
                         
                         <Fade in={true} >
-                            <Heading color='white' fontStyle='italic' fontFamily={Math.random() > 0.95 ? 'cursive' : 'serif'} marginLeft={(width-1280)/2}>
+                            <Heading color='white' fontStyle='italic' fontFamily={Math.random() > 0.95 ? 'cursive' : 'serif'} fontWeight='light' marginLeft={(width-1280)/2}>
                                 PLEASE {bannerMessages[Math.floor(Math.random() * bannerMessages.length)]}
                             </Heading>
                         </Fade>

@@ -2,6 +2,7 @@ import {useEffect, useState} from 'react'
 import axios from 'axios'
 import LoginModal from '../modals/LoginModal'
 import UserModal from '../modals/UserModal'
+import AddFilm from './AddFilm'
 import {Box, Heading, Text, HStack, VStack, Stack, Divider,  Avatar, Flex, Spacer,  Button, Center, LinkOverlay, LinkBox, Slide, useToast, useDisclosure } from '@chakra-ui/react'
 
 import {
@@ -13,7 +14,6 @@ import {
     DrawerContent,
     DrawerCloseButton,
   } from '@chakra-ui/react'
-import FallbackAvatar from './FallbackAvatar'
 
 
 const url = 'https://seng365.csse.canterbury.ac.nz/api/v1';
@@ -84,7 +84,7 @@ function ProfileSection({user, userOpen, login}: any) {
                             <Text as='i' fontSize='12'>You are logged in as: </Text>
                             <Text fontSize='18' pr='6'>{user.firstName + ' ' + user.lastName} </Text>
                         </Box>
-                        <FallbackAvatar 
+                        <Avatar 
                             name={user.firstName + ' ' + user.lastName} 
                             src={url + '/users/' + localStorage.userId + '/image'}
                             size='md'/>
@@ -104,7 +104,7 @@ function ProfileSection({user, userOpen, login}: any) {
 } 
 
 export default function Sidebar({isOpen, onClose}: any) {
-
+    
     const dummy = {
         firstName: 'x',
         lastName: 'y',
@@ -119,6 +119,10 @@ export default function Sidebar({isOpen, onClose}: any) {
     const { isOpen: userIsOpen, 
             onOpen: userOnOpen, 
             onClose: userOnClose } = useDisclosure();
+    
+    const { isOpen: addFilmIsOpen, 
+            onOpen: addFilmOnOpen, 
+            onClose: addFilmOnClose } = useDisclosure();
             
 
     const getUser = () => {
@@ -136,7 +140,7 @@ export default function Sidebar({isOpen, onClose}: any) {
         if (typeof localStorage.userId === "undefined") {
             loginOnOpen()
         } else {
-
+            addFilmOnOpen()
         }
     }
 
@@ -165,7 +169,7 @@ export default function Sidebar({isOpen, onClose}: any) {
             isOpen={isOpen}
             placement='left'
             onClose={onClose}
-            size='lg'
+            size='md'
             colorScheme='teal'
           >
             <DrawerOverlay />
@@ -183,6 +187,7 @@ export default function Sidebar({isOpen, onClose}: any) {
                 </DrawerBody>
                 <LoginModal isOpen={loginIsOpen} onClose={loginOnClose}/>
                 <UserModal isOpen={userIsOpen} onClose={userOnClose} user={user} getUser={getUser}/>
+                <AddFilm isOpen={addFilmIsOpen} onClose={addFilmOnClose}/>
 
                 <DrawerFooter>
                     <ProfileSection user={user} userOpen={userOnOpen} login={loginOnOpen}/>

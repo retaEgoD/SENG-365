@@ -1,6 +1,7 @@
 import { useState} from 'react'
 import axios from 'axios'
 import AvatarUpload from '../components/AvatarUpload'
+import UnrequiredField from '../components/UnrequiredField'
 
 import {Box, Heading, Text, Input, InputGroup, InputRightElement, IconButton, Button, HStack, VStack, useToast, Avatar, Flex, Spacer} from '@chakra-ui/react'
 import {Tabs, TabList, TabPanels, Tab, TabPanel} from '@chakra-ui/react'
@@ -13,21 +14,8 @@ import {
     FormErrorMessage,
     FormHelperText,
   } from '@chakra-ui/react'
-import FallbackAvatar from '../components/FallbackAvatar'
 
 const url = 'https://seng365.csse.canterbury.ac.nz/api/v1';
-
-
-function GenericField({fieldName, type, value, handleFieldChange}: any) {
-    return (
-        <>
-            <FormControl pt='4'>
-                <FormLabel>{fieldName}:</FormLabel>
-                    <Input type={type} placeholder={fieldName} value={value} onChange={handleFieldChange}/>
-            </FormControl>
-        </>
-    )
-}
 
 function PasswordField({password, setPassword, isCurrent}: any) {
     const [show, setShow] = useState(false);
@@ -133,7 +121,7 @@ function UserBox({user, getUser}: any) {
         <TabPanel>
             <Flex justifyContent='center'>
                 <VStack>
-                    <FallbackAvatar 
+                    <Avatar 
                             name={user.firstName + ' ' + user.lastName} 
                             src={url + '/users/' + localStorage.userId + '/image'}
                             size='xl'/>
@@ -203,10 +191,10 @@ function UserBox({user, getUser}: any) {
                     </VStack>
                 </Flex>
                 <HStack>
-                    <GenericField fieldName="First name" type='text' value={fName} handleFieldChange={handleFNameChange}/>
-                    <GenericField fieldName="Last name" type='text' value={lName} handleFieldChange={handleLNameChange}/>
+                    <UnrequiredField fieldName="First name" type='text' value={fName} handleFieldChange={handleFNameChange}/>
+                    <UnrequiredField fieldName="Last name" type='text' value={lName} handleFieldChange={handleLNameChange}/>
                 </HStack>
-                <GenericField fieldName="Email" type='email' value={email} handleFieldChange={handlerEmailChange}/>
+                <UnrequiredField fieldName="Email" type='email' value={email} handleFieldChange={handlerEmailChange}/>
                 <PasswordField password={currentPassword} setPassword={handlecurrentPasswordChange} isCurrent={true}/>
                 <PasswordField password={newPassword} setPassword={handleNewPasswordChange}/>
                 <Flex pt='1rem'> 
@@ -241,7 +229,7 @@ export default function UserModal({isOpen, onClose, user, getUser}: any) {
         <Modal isOpen={isOpen} onClose={onClose}>
         <ModalOverlay />
         <ModalContent>
-          <ModalHeader fontSize='3xl' fontStyle='italic'>Despite Everything, It's Still You.</ModalHeader>
+          <ModalHeader fontSize='3xl' fontStyle='italic'>It's You.</ModalHeader>
           <ModalCloseButton />
           <ModalBody>
                 <UserBox onClose={onClose} user={user} getUser={getUser}/>

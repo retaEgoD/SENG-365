@@ -1,8 +1,6 @@
 import { useState, useEffect, useCallback } from 'react'
 import axios from 'axios'
 
-import FallbackAvatar from './FallbackAvatar'
-
 import {Box, Heading, Text, IconButton, Button, Stack, HStack, Image, Avatar, Flex, Spacer, SlideFade } from '@chakra-ui/react'
 import { Card, CardHeader, CardBody, CardFooter } from '@chakra-ui/react'
 
@@ -88,7 +86,7 @@ export default function DisplayFilms({filmData, pageLength, h}: any) {
                                         <Text as='i' fontSize='12'>Directed by: </Text>
                                         <Text fontSize='28' pr='6'>{film.directorFirstName + ' ' + film.directorLastName} </Text>
                                     </Box>
-                                    <FallbackAvatar 
+                                    <Avatar 
                                         name={film.directorFirstName + film.directorLastName} 
                                         src={url + '/users/' + film.directorId + '/image'}
                                         size='xl'/>

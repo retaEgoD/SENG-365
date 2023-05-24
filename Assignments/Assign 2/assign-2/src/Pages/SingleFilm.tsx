@@ -4,7 +4,6 @@ import axios from 'axios'
 import DisplayFilms from '../components/DisplayFilms';
 import Banner from '../components/Banner';
 import ReviewBox from '../components/ReviewBox';
-import FallbackAvatar from '../components/FallbackAvatar';
 
 import {Box, Heading, Text, HStack, VStack, Stack, Divider, Image, Avatar, Flex, Spacer, useDisclosure, Button, Wrap } from '@chakra-ui/react'
 import { Card, CardHeader, CardBody, CardFooter } from '@chakra-ui/react'
@@ -61,7 +60,7 @@ function Reviews({film, reviewPosted}: any) {
                 <Card maxW='4xl'>
                     <CardHeader>
                         <HStack>
-                            <FallbackAvatar 
+                            <Avatar 
                             name={review.reviewerFirstName + ' ' + review.reviewerLastName} 
                             src={url + '/users/' + review.reviewerId + '/image'}
                             />
@@ -235,7 +234,7 @@ export default function SingleFilm() {
                     <Text>{film.description}</Text>
                     <Spacer />
                     <HStack pb='5'>
-                        <FallbackAvatar 
+                        <Avatar 
                             name={film.directorFirstName + ' ' + film.directorLastName} 
                             src={url + '/users/' + film.directorId + '/image'}
                             size='xl'/>
