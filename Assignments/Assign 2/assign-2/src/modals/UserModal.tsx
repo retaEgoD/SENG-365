@@ -14,7 +14,7 @@ import {
   } from '@chakra-ui/react'
 import removeEmpty from '../hooks/removeEmpty'
 
-const url = 'https://seng365.csse.canterbury.ac.nz/api/v1';
+const url = 'http://localhost:4941/api/v1';
 
 function PasswordField({password, setPassword, isCurrent}: any) {
     const [show, setShow] = useState(false);

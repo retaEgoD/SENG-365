@@ -10,7 +10,7 @@ import {
     SliderMark,
   } from '@chakra-ui/react'
 
-const url = 'https://seng365.csse.canterbury.ac.nz/api/v1';
+const url = 'http://localhost:4941/api/v1';
 
 export default function ReviewBox({id, setReviewPosted}: any) {
     const [reviewRating, setReviewRating] = useState(5)

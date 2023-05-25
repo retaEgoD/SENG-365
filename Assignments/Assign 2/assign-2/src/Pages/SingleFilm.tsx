@@ -31,7 +31,7 @@ import { Tabs, TabList, TabPanels, Tab, TabPanel } from '@chakra-ui/react'
 
 import {StarIcon} from '@chakra-ui/icons'
 
-const url = 'https://seng365.csse.canterbury.ac.nz/api/v1';
+const url = 'http://localhost:4941/api/v1';
 
 function Reviews({film, reviewPosted}: any) {
 

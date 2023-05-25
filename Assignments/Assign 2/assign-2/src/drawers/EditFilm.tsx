@@ -4,7 +4,7 @@ import FilmDrawer from "./FilmDrawer";
 import { useToast } from '@chakra-ui/react'
 import removeEmpty from "../hooks/removeEmpty";
 
-const url = 'https://seng365.csse.canterbury.ac.nz/api/v1';
+const url = 'http://localhost:4941/api/v1';
 
 export default function EditFIlm({film, getFilms, isOpen, onClose}: any) {
 

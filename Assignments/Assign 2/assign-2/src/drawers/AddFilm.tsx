@@ -4,7 +4,7 @@ import FilmDrawer from "./FilmDrawer";
 import { useToast } from '@chakra-ui/react'
 import removeEmpty from "../hooks/removeEmpty";
 
-const url = 'https://seng365.csse.canterbury.ac.nz/api/v1';
+const url = 'http://localhost:4941/api/v1';
 
 export default function AddFilm({isOpen, onClose}: any) {
 
@@ -16,7 +16,8 @@ export default function AddFilm({isOpen, onClose}: any) {
     const putImage = (id: any) => {
         axios.put(url + '/films/' + id + '/image', 
                     imageFile, 
-                    { headers: {'X-Authorization': localStorage.authToken, 'Content-Type': imageFile.type}})
+                    { headers: {'X-Authorization': localStorage.authToken, 
+                                'Content-Type': imageFile.type}})
                 .then(() => {
                     Toast({
                         title: 'Image Posted.',

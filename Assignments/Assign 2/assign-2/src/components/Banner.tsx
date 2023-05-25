@@ -20,7 +20,9 @@ export default function Banner() {
                             'DON\'T MAKE ME DO THE SENG 365 PROJECT AGAIN (WORSE THAN DEATH)',
                             'POUR $1,000,000 IN PENNIES ONTO ME',
                             'DO NOT TAKE ANY OF THIS SERIOUSLY',
-                            'I AM SO FUCKING BORED OF THIS ASSIGNMENT']
+                            'I AM SO FUCKING BORED OF THIS ASSIGNMENT',
+                            'REMOVE MY INTERNAL ORGANS',
+                            'GET ME OUT OF THIS FUCKING HOLE']
 
     return (
         <Box>

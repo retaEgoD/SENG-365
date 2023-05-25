@@ -1,25 +1,16 @@
 import { useState, useEffect } from 'react'
 import axios from 'axios'
 
-import {Box, Heading, Text, IconButton, Button, Stack, HStack, Image, Avatar, Flex, Spacer, SlideFade, useDisclosure } from '@chakra-ui/react'
-import { Card, CardBody, CardFooter } from '@chakra-ui/react'
+import {Text, IconButton, HStack, Flex, Spacer, SlideFade} from '@chakra-ui/react'
 
 
-import {
-    Accordion,
-    AccordionItem,
-    AccordionButton,
-    AccordionPanel,
-    AccordionIcon,
-} from '@chakra-ui/react'
+import { Accordion } from '@chakra-ui/react'
 
-import {StarIcon, ChevronLeftIcon, ArrowLeftIcon, ChevronRightIcon, ArrowRightIcon} from '@chakra-ui/icons'
-import DeleteModal from '../modals/DeleteModal'
-import EditFilm from '../drawers/EditFilm'
+import {ChevronLeftIcon, ArrowLeftIcon, ChevronRightIcon, ArrowRightIcon} from '@chakra-ui/icons'
 import FilmCard from './FilmCard'
 
 
-const url = 'https://seng365.csse.canterbury.ac.nz/api/v1';
+const url = 'http://localhost:4941/api/v1';
 
 
 
