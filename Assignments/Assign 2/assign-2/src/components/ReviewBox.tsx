@@ -29,7 +29,7 @@ export default function ReviewBox({id, setReviewPosted}: any) {
         axios.post(url + '/films/' + id + '/reviews', 
                    data,
                    { headers: {'X-Authorization': authToken}})
-            .then((response) => {
+            .then((_) => {
                 setReviewPosted(true);
                 Toast({
                     title: 'Review posted.',

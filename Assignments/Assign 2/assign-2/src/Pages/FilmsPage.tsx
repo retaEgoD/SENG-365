@@ -15,7 +15,6 @@ import {
 import {ChevronDownIcon} from '@chakra-ui/icons'
 import {Select} from "chakra-react-select";
 
-
 const url = 'https://seng365.csse.canterbury.ac.nz/api/v1';
 
 function Search({searchTerm, setSearchTerm, 
@@ -37,8 +36,6 @@ function Search({searchTerm, setSearchTerm,
     const handleTagsChange = (selected: any) => {
         setTags(selected);
     }
-
-
 
     const sortMap = new Map([
         ['ALPHABETICAL_ASC', 'Alphabetical, Asc'],
@@ -65,7 +62,6 @@ function Search({searchTerm, setSearchTerm,
     useEffect(() => {
         getFilms()
     }, [searchTerm, sort, tags])
-
     
     const ageRatingOptions = {"label": "Age Rating",
                               "options": ageRatings.map(x => ({"value": x, "label": x}))};
@@ -158,7 +154,7 @@ export default function FilmsPage() {
                 <Heading textAlign='left' pb='0.5rem' fontStyle='italic' fontWeight='light' fontSize='5xl'>Results</Heading>
                 <Text textAlign='left'>Click a film to expand.</Text>
                 <Text as='i'>{filmData.length} results</Text>
-                <DisplayFilms filmData={filmData} pageLength={10} h='40rem'/>
+                <DisplayFilms filmData={filmData} getFilms={getFilms} pageLength={10} h='40rem'/>
             </>
             
         </Box>

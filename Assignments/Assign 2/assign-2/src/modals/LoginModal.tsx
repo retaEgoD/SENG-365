@@ -1,8 +1,9 @@
 import { useState } from 'react'
 import axios from 'axios'
 import RequiredField from '../components/RequiredField'
+import AddImageModal from './AddImageModal'
 
-import {Box, Heading, Text, Input, InputGroup, InputRightElement, IconButton, Button, HStack, VStack, useToast} from '@chakra-ui/react'
+import {Box, Input, InputGroup, InputRightElement, IconButton, Button, HStack, useToast, useDisclosure } from '@chakra-ui/react'
 import {Tabs, TabList, TabPanels, Tab, TabPanel} from '@chakra-ui/react'
 import {Modal, ModalOverlay, ModalContent, ModalHeader, ModalFooter, ModalBody, ModalCloseButton} from '@chakra-ui/react'
 import {ViewIcon, MinusIcon} from '@chakra-ui/icons'
@@ -10,7 +11,6 @@ import {ViewIcon, MinusIcon} from '@chakra-ui/icons'
 import {
     FormControl,
     FormLabel,
-    FormErrorMessage,
     FormHelperText,
   } from '@chakra-ui/react'
 
@@ -66,6 +66,10 @@ function LoginBox({onClose}: any) {
     const handleFNameChange = (event: { target: { value: any; }; }) => setFName(event.target.value);
     const handleLNameChange = (event: { target: { value: any; }; }) => setLName(event.target.value);
 
+    const { isOpen: imageIsOpen, 
+        onOpen: imageOnOpen, 
+        onClose: imageOnClose} = useDisclosure();
+
     function login() {
         const body = {'email': loginEmail, 'password': loginPassword};
         axios.post(url + '/users/login', body)
@@ -83,7 +87,7 @@ function LoginBox({onClose}: any) {
             }, (error) => {
                 Toast({
                     title: 'An error has occured. All your fault.',
-                    description: `${error.response.statusText.toString()}`,
+                    description: `${error.toString()}`,
                     status: 'error',
                     duration: 9000,
                     isClosable: true
@@ -92,8 +96,10 @@ function LoginBox({onClose}: any) {
     }
 
     function register() {
+
         const registerBody = {'email': registerEmail, 'password': registerPassword, 'firstName': fName, 'lastName': lName};
         const loginBody = {'email': registerEmail, 'password': registerPassword};
+
         axios.post(url + '/users/register', registerBody)
             .then((_) => {
                 Toast({
@@ -107,7 +113,7 @@ function LoginBox({onClose}: any) {
                 .then((response) => {
                     localStorage.authToken = response.data.token
                     localStorage.userId = JSON.stringify(response.data.userId)
-                    onClose();
+                    imageOnOpen();
                 });
             }, (error) => {
                 Toast({
@@ -150,10 +156,9 @@ function LoginBox({onClose}: any) {
                             <Button colorScheme='gray' onClick={onClose}>Cancel</Button>
                             <Button colorScheme='teal' onClick={register}>Register</Button>
                         </HStack>
+                        <AddImageModal isOpen={imageIsOpen} onClose={imageOnClose} parentOnClose={onClose}/>
                     </TabPanel>
                 </TabPanels>
-
-                
             </Tabs>
         </Box>
     )

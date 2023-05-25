@@ -3,7 +3,7 @@ import axios from 'axios'
 import AvatarUpload from '../components/AvatarUpload'
 import UnrequiredField from '../components/UnrequiredField'
 
-import {Box, Heading, Text, Input, InputGroup, InputRightElement, IconButton, Button, HStack, VStack, useToast, Avatar, Flex, Spacer} from '@chakra-ui/react'
+import {Box, Text, Input, InputGroup, InputRightElement, IconButton, Button, HStack, VStack, useToast, Avatar, Flex, Spacer} from '@chakra-ui/react'
 import {Tabs, TabList, TabPanels, Tab, TabPanel} from '@chakra-ui/react'
 import {Modal, ModalOverlay, ModalContent, ModalHeader, ModalBody, ModalCloseButton} from '@chakra-ui/react'
 import {ViewIcon, MinusIcon} from '@chakra-ui/icons'
@@ -11,9 +11,8 @@ import {ViewIcon, MinusIcon} from '@chakra-ui/icons'
 import {
     FormControl,
     FormLabel,
-    FormErrorMessage,
-    FormHelperText,
   } from '@chakra-ui/react'
+import removeEmpty from '../hooks/removeEmpty'
 
 const url = 'https://seng365.csse.canterbury.ac.nz/api/v1';
 
@@ -80,22 +79,11 @@ function UserBox({user, getUser}: any) {
         setLName('');
     }
 
-    const removeEmpty = (obj: any) => {
-        const newJSON: any = {}
-        for (let key in obj) {
-            if (obj[key] !== '') {
-                newJSON[key] = obj[key];
-            }
-        }
-        return newJSON
-    }
-
     const changeInfo = () => {
         axios.patch(url + '/users/' + JSON.parse(localStorage.userId), 
                     removeEmpty(patchInfo), 
                     { headers: {'X-Authorization': localStorage.authToken}})
                 .then((_) => {
-                    console.log(removeEmpty(patchInfo))
                     Toast({
                         title: 'Info Changed.',
                         description: 'But you haven\'t.',
@@ -157,29 +145,54 @@ function UserBox({user, getUser}: any) {
         const [imageUrl, setImageUrl] = useState<any>(null);
         
         const uploadPhoto = () => {
-            axios.put(url + '/users/' + localStorage.userId + '/image', 
-                      imageFile, 
-                      { headers: {'X-Authorization': localStorage.authToken, 'Content-Type': imageFile.type}})
-            .then((_) => {
-                Toast({
-                    title: 'Uploaded.',
-                    description: 'Your face has been replaced.',
-                    status: 'success',
-                    duration: 9000,
-                    isClosable: true
-                })
-                getUser();
-                setImageFile(null);
-                setImageUrl(null);
-            }, (error) => {
-                Toast({
-                    title: 'Something went wrong. Here\'s a helpful error message.',
-                    description: `${error.response.statusText.toString()}`,
-                    status: 'error',
-                    duration: 9000,
-                    isClosable: true
-                })
-            });
+            if (imageFile !== null && ['jpg', 'jpeg', 'png', 'gif'].includes(imageFile.type.split('/').pop())) {
+                axios.put(url + '/users/' + localStorage.userId + '/image', 
+                        imageFile, 
+                        { headers: {'X-Authorization': localStorage.authToken, 'Content-Type': imageFile.type}})
+                .then((_) => {
+                    Toast({
+                        title: 'Uploaded.',
+                        description: 'Your face has been replaced.',
+                        status: 'success',
+                        duration: 9000,
+                        isClosable: true
+                    })
+                    getUser();
+                    setImageFile(null);
+                    setImageUrl(null);
+                }, (error) => {
+                    Toast({
+                        title: 'Something went wrong. Here\'s a helpful error message.',
+                        description: `${error.toString()}`,
+                        status: 'error',
+                        duration: 9000,
+                        isClosable: true
+                    })
+                });
+            } else {
+                axios.delete(url + '/users/' + localStorage.userId + '/image', 
+                        { headers: {'X-Authorization': localStorage.authToken}})
+                .then((_) => {
+                    Toast({
+                        title: 'Uploaded.',
+                        description: 'Your face has been removed.',
+                        status: 'success',
+                        duration: 9000,
+                        isClosable: true
+                    })
+                    getUser();
+                    setImageFile(null);
+                    setImageUrl(null);
+                }, (_) => {
+                    Toast({
+                        title: 'Something went wrong. Here\'s a helpful error message.',
+                        description: 'You don\'t have a face to remove.',
+                        status: 'error',
+                        duration: 9000,
+                        isClosable: true
+                    })
+                });
+            }
         }
 
         return (
@@ -198,7 +211,7 @@ function UserBox({user, getUser}: any) {
                 <PasswordField password={currentPassword} setPassword={handlecurrentPasswordChange} isCurrent={true}/>
                 <PasswordField password={newPassword} setPassword={handleNewPasswordChange}/>
                 <Flex pt='1rem'> 
-                    <Button colorScheme='teal' onClick={uploadPhoto}>Upload Photo</Button>
+                    <Button colorScheme='green' onClick={uploadPhoto}>Upload/Remove Photo</Button>
                     <Spacer/>
                     <Button colorScheme='teal' onClick={changeInfo}>Save Info</Button>
                 </Flex>

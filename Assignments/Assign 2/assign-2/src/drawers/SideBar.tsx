@@ -3,7 +3,7 @@ import axios from 'axios'
 import LoginModal from '../modals/LoginModal'
 import UserModal from '../modals/UserModal'
 import AddFilm from './AddFilm'
-import {Box, Heading, Text, HStack, VStack, Stack, Divider,  Avatar, Flex, Spacer,  Button, Center, LinkOverlay, LinkBox, Slide, useToast, useDisclosure } from '@chakra-ui/react'
+import {Box, Heading, Text, HStack, VStack, Divider,  Avatar, Flex, useToast, useDisclosure } from '@chakra-ui/react'
 
 import {
     Drawer,
@@ -63,7 +63,7 @@ function ProfileSection({user, userOpen, login}: any) {
                 }, (error) => {
                     Toast({
                         title: 'Something went wrong. Here\'s a helpful error message.',
-                        description: `${error.response.statusText.toString()}`,
+                        description: `${error.toString()}`,
                         status: 'error',
                         duration: 9000,
                         isClosable: true
@@ -78,7 +78,7 @@ function ProfileSection({user, userOpen, login}: any) {
                     <Flex w='100%' alignItems='center' cursor='pointer' onClick={logout}>
                         <Heading fontStyle='italic' fontWeight='light'>Logout</Heading>
                     </Flex>
-                    <Divider orientation='vertical' />
+                    <Divider orientation='vertical' px='1'/>
                     <HStack w='100%' justifyContent='right' pr='4' cursor='pointer' onClick={userOpen}>
                         <Box>
                             <Text as='i' fontSize='12'>You are logged in as: </Text>
@@ -148,7 +148,7 @@ export default function Sidebar({isOpen, onClose}: any) {
         if (typeof localStorage.userId === "undefined") {
             loginOnOpen()
         } else {
-
+            (() => window.location.href='/myfilms')()
         }
     }
 

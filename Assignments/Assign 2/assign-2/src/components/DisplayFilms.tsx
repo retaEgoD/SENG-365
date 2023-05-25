@@ -1,8 +1,8 @@
-import { useState, useEffect, useCallback } from 'react'
+import { useState, useEffect } from 'react'
 import axios from 'axios'
 
-import {Box, Heading, Text, IconButton, Button, Stack, HStack, Image, Avatar, Flex, Spacer, SlideFade } from '@chakra-ui/react'
-import { Card, CardHeader, CardBody, CardFooter } from '@chakra-ui/react'
+import {Box, Heading, Text, IconButton, Button, Stack, HStack, Image, Avatar, Flex, Spacer, SlideFade, useDisclosure } from '@chakra-ui/react'
+import { Card, CardBody, CardFooter } from '@chakra-ui/react'
 
 
 import {
@@ -14,16 +14,26 @@ import {
 } from '@chakra-ui/react'
 
 import {StarIcon, ChevronLeftIcon, ArrowLeftIcon, ChevronRightIcon, ArrowRightIcon} from '@chakra-ui/icons'
+import DeleteModal from '../modals/DeleteModal'
+import EditFIlm from '../drawers/EditFilm'
 
 
 const url = 'https://seng365.csse.canterbury.ac.nz/api/v1';
 
 
 
-export default function DisplayFilms({filmData, pageLength, h}: any) {
+export default function DisplayFilms({filmData, getFilms, pageLength, h}: any) {
 
     const [genres, setGenres] = useState <Map<number, string>> (new Map([]));
     const [pageNo, setPageNo] = useState(0);
+
+    const { isOpen: deleteIsOpen, 
+            onOpen: deleteOnOpen, 
+            onClose: deleteOnClose } = useDisclosure();
+
+    const { isOpen: editIsOpen, 
+            onOpen: editOnOpen, 
+            onClose: editOnClose } = useDisclosure();
     
     const getGenres = () => {
         axios.get(url + '/films/genres')
@@ -32,10 +42,13 @@ export default function DisplayFilms({filmData, pageLength, h}: any) {
         });
     }
 
-
     useEffect(() => {
         getGenres()
     }, [])
+
+    useEffect(() => {
+        setPageNo(0);
+    }, [filmData])
 
     const FilmList = () => {
         return filmData.slice(0+pageLength*pageNo, pageLength*(pageNo+1)).map((film: BasicFilm) =>
@@ -69,14 +82,14 @@ export default function DisplayFilms({filmData, pageLength, h}: any) {
                         fallbackSrc='https://pic-bstarstatic.akamaized.net/ugc/9f4faf208a6a902e28bb97a443eac31c51037b6e.jpg@1200w_630h_1e_1c_1f.webp'
                         alt={film.title}
                     />
-                    <Stack>
-                        <CardBody textAlign='left'>
-                            <Flex w='55.5rem'>
+                    <Stack w='100%' px='8'>
+                        <CardBody textAlign='left' w='100%' >
+                            <Flex >
                                 <Box>
                                     <Heading size='xl' fontStyle='italic' fontWeight='light'>{film.title}</Heading>
                                         {new Date(film.releaseDate) > new Date() ?
-                                            <Text as='i'>Release Date: {film.releaseDate.slice(0, pageLength)}</Text> :
-                                            <Text as='i'>Released: {film.releaseDate.slice(0, pageLength)}</Text>}
+                                            <Text as='i'>Release Date: {film.releaseDate}</Text> :
+                                            <Text as='i'>Released: {film.releaseDate}</Text>}
                                         <br />
                                         <Text as='i'>Age Rating: {film.ageRating}</Text>
                                 </Box>
@@ -94,9 +107,27 @@ export default function DisplayFilms({filmData, pageLength, h}: any) {
                             </Flex>
                         </CardBody>
                         <CardFooter>
-                        <Button variant='solid' colorScheme='teal' onClick={() => {window.location.href='/films/' + film.filmId}}>
-                            See more
-                        </Button>
+                            <Flex w='100%'>
+                                <Button colorScheme='teal' onClick={() => {window.location.href='/films/' + film.filmId}}>
+                                    See more
+                                </Button>
+                                <Spacer />
+                                {typeof localStorage.userId !== 'undefined' && JSON.parse(localStorage.userId) === film.directorId ? 
+                                    <HStack>
+                                        <Button colorScheme='red' onClick={deleteOnOpen}>
+                                            Delete
+                                        </Button>
+                                        <Button colorScheme='teal' onClick={editOnOpen}>
+                                            Edit
+                                        </Button>
+                                        <DeleteModal film={film} getFilms={getFilms} isOpen={deleteIsOpen} onClose={deleteOnClose}/>
+                                        <EditFIlm film={film} getFilms={getFilms} isOpen={editIsOpen} onClose={editOnClose}/>
+                                    </HStack>
+                                    :
+                                    <></>
+                                }
+
+                            </Flex>
                             
                         </CardFooter>
                     </Stack>

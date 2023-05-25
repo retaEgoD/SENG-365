@@ -10,7 +10,7 @@ export default function ImageUpload({setImageFile, imageUrl, setImageUrl}: any) 
                 setImageUrl(reader.result);
             };
             reader.readAsDataURL(image);
-            setImageFile(image)
+            setImageFile(image);
         }
       };
     
@@ -19,9 +19,10 @@ export default function ImageUpload({setImageFile, imageUrl, setImageUrl}: any) 
           <Image bg='teal' 
                  objectFit='cover'
                  maxW={{ base: '100%', sm: '700px' }}
-                 h='700' 
+                 h='700px' 
                  cursor='pointer' 
                  src={imageUrl} 
+                 fallbackSrc='https://i.imgflip.com/7my1ae.jpg'
                  _hover={{ boxShadow: '0 0 10px rgba(0, 0, 0, 0.3)',
                                                                             filter: 'brightness(70%)',
                                                                             transition: 'filter 0.3s ease' }}/>

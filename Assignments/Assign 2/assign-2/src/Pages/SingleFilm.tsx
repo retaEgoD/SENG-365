@@ -5,8 +5,8 @@ import DisplayFilms from '../components/DisplayFilms';
 import Banner from '../components/Banner';
 import ReviewBox from '../components/ReviewBox';
 
-import {Box, Heading, Text, HStack, VStack, Stack, Divider, Image, Avatar, Flex, Spacer, useDisclosure, Button, Wrap } from '@chakra-ui/react'
-import { Card, CardHeader, CardBody, CardFooter } from '@chakra-ui/react'
+import {Box, Heading, Text, HStack, Divider, Image, Avatar, Flex, Spacer, useDisclosure, Button } from '@chakra-ui/react'
+import { Card, CardHeader, CardBody } from '@chakra-ui/react'
 
 import {
     Drawer,
@@ -20,13 +20,9 @@ import {
 
 import {
     Table,
-    Thead,
     Tbody,
-    Tfoot,
     Tr,
-    Th,
     Td,
-    TableCaption,
     TableContainer,
 } from '@chakra-ui/react'
 
@@ -130,21 +126,21 @@ function Reviews({film, reviewPosted}: any) {
       )
 }
 
-function SimilarFilms({film, genre, directorFilms, genreFilms, pageLength}: any) {
+function SimilarFilms({film, genre, directorFilms, genreFilms, getDirectorFilms, getGenreFilms, pageLength}: any) {
     return (
         <Box>
             <Heading pt='20' pb='4' fontStyle='italic' fontWeight='light' size='2xl'>Find Similar Films:</Heading>
             <Tabs isFitted>
                 <TabList>
-                    <Tab >Films Directed By {film.directorFirstName + ' ' + film.directorLastName}</Tab>
-                    <Tab>{genre} Films</Tab>
+                    <Tab >More Films Directed By {film.directorFirstName + ' ' + film.directorLastName}</Tab>
+                    <Tab>More {genre} Films</Tab>
                 </TabList>
                 <TabPanels>
                     <TabPanel>
-                        <DisplayFilms filmData={directorFilms} pageLength={pageLength} h='20rem'/>
+                        <DisplayFilms filmData={directorFilms} getFilm={getDirectorFilms} pageLength={pageLength} h='20rem'/>
                     </TabPanel>
                     <TabPanel>
-                        <DisplayFilms filmData={genreFilms} pageLength={pageLength} h='20rem'/>
+                        <DisplayFilms filmData={genreFilms} getFilm={getGenreFilms} pageLength={pageLength} h='20rem'/>
                     </TabPanel>
                 </TabPanels>
             </Tabs>
@@ -247,7 +243,14 @@ export default function SingleFilm() {
                 </Flex>
             </HStack>
             <ReviewBox id={id} setReviewPosted={setReviewPosted}/>
-            <SimilarFilms film={film} genre={genres.get(film.genreId)} directorFilms={directorFilms} genreFilms={genreFilms} pageLength={5}/>
+            <SimilarFilms 
+                film={film} 
+                genre={genres.get(film.genreId)} 
+                directorFilms={directorFilms} 
+                genreFilms={genreFilms} 
+                getDirectorFilms={getDirectorFilms} 
+                getGenreFilms={getGenreFilms} 
+                pageLength={5}/>
         </Box>
     )
     
