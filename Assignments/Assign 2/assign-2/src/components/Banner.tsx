@@ -43,7 +43,7 @@ export default function Banner() {
                     <Center>
                         
                         <Fade in={true} >
-                            <Heading color='white' fontStyle='italic' fontFamily={Math.random() > 0.95 ? 'cursive' : 'serif'} fontWeight='light' marginLeft={(width-1280)/2}>
+                            <Heading color='white' fontStyle='italic' fontFamily='serif' fontWeight='light' marginLeft={(width-1280)/2}>
                                 PLEASE {bannerMessages[Math.floor(Math.random() * bannerMessages.length)]}
                             </Heading>
                         </Fade>

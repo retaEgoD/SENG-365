@@ -162,7 +162,7 @@ function UserBox({user, getUser}: any) {
                     setImageUrl(null);
                 }, (error) => {
                     Toast({
-                        title: 'Something went wrong. Here\'s a helpful error message.',
+                        title: 'Something went wrong. Well done.',
                         description: `${error.toString()}`,
                         status: 'error',
                         duration: 9000,
@@ -174,7 +174,7 @@ function UserBox({user, getUser}: any) {
                         { headers: {'X-Authorization': localStorage.authToken}})
                 .then((_) => {
                     Toast({
-                        title: 'Uploaded.',
+                        title: 'Removed.',
                         description: 'Your face has been removed.',
                         status: 'success',
                         duration: 9000,
@@ -185,7 +185,7 @@ function UserBox({user, getUser}: any) {
                     setImageUrl(null);
                 }, (_) => {
                     Toast({
-                        title: 'Something went wrong. Here\'s a helpful error message.',
+                        title: 'Something went wrong. Well done.',
                         description: 'You don\'t have a face to remove.',
                         status: 'error',
                         duration: 9000,

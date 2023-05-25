@@ -26,27 +26,37 @@ export default function ReviewBox({id, setReviewPosted}: any) {
     const data = reviewText === '' ? {rating: reviewRating} : {rating: reviewRating, review: reviewText}
 
     const submitReview = () => {
-        axios.post(url + '/films/' + id + '/reviews', 
-                   data,
-                   { headers: {'X-Authorization': authToken}})
-            .then((_) => {
-                setReviewPosted(true);
-                Toast({
-                    title: 'Review posted.',
-                    description: 'Do you think your father is proud of you?',
-                    status: 'success',
-                    duration: 9000,
-                    isClosable: true
-                })
-            }, (error) => {
-                Toast({
-                    title: 'Something went wrong. Here\'s a helpful error message.',
-                    description: `${error.toString()}`,
-                    status: 'error',
-                    duration: 9000,
-                    isClosable: true
-                })
-            });
+        if (typeof localStorage.userId !== 'undefined') {
+            axios.post(url + '/films/' + id + '/reviews', 
+                       data,
+                       { headers: {'X-Authorization': authToken}})
+                .then((_) => {
+                    setReviewPosted(true);
+                    Toast({
+                        title: 'Review posted.',
+                        description: 'Do you think your father is proud of you?',
+                        status: 'success',
+                        duration: 9000,
+                        isClosable: true
+                    })
+                }, (error) => {
+                    Toast({
+                        title: 'Something went wrong. Here\'s a helpful error message.',
+                        description: `${error.toString()}`,
+                        status: 'error',
+                        duration: 9000,
+                        isClosable: true
+                    })
+                });
+        } else {
+            Toast({
+                title: 'Wrong.',
+                description: 'Log in or register to review films.',
+                status: 'error',
+                duration: 9000,
+                isClosable: true
+            })
+        }
     }
 
     const labelStyles = {

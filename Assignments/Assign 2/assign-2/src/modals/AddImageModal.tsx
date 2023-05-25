@@ -54,7 +54,7 @@ export default function AddImageModal({isOpen, onClose, parentOnClose}: any) {
     }
 
     return (
-        <Modal isOpen={isOpen} onClose={onClose}>
+        <Modal isOpen={isOpen} onClose={handleClose}>
         <ModalOverlay />
         <ModalContent>
           <ModalHeader fontSize='3xl' fontStyle='italic'>Add a Photo?</ModalHeader>

@@ -56,10 +56,12 @@ function ProfileSection({user, userOpen, login}: any) {
                         title: 'Logged out.',
                         description: 'Get out.',
                         status: 'success',
-                        duration: 9000,
+                        duration: 1000,
                         isClosable: true
                     })
                     localStorage.clear()
+
+                    setTimeout(() => {window.location.href='/films'}, 1300)
                 }, (error) => {
                     Toast({
                         title: 'Something went wrong. Here\'s a helpful error message.',
@@ -153,7 +155,7 @@ export default function Sidebar({isOpen, onClose}: any) {
     }
 
     const myAccount = () => {
-        if (typeof localStorage.userId === "undefined") {
+        if (typeof localStorage.userId === "undefined" || user === dummy) {
             loginOnOpen()
         } else {
             userOnOpen()
@@ -183,7 +185,6 @@ export default function Sidebar({isOpen, onClose}: any) {
                     <SideBarButton buttonText='Add a Film' buttonFunction={addFilm}/>
                     <SideBarButton buttonText='My Films' buttonFunction={myFilms}/>
                     <SideBarButton buttonText='My Account' buttonFunction={myAccount}/>
-                    <SideBarButton buttonText='404?'/>
                 </DrawerBody>
                 <LoginModal isOpen={loginIsOpen} onClose={loginOnClose}/>
                 <UserModal isOpen={userIsOpen} onClose={userOnClose} user={user} getUser={getUser}/>

@@ -53,7 +53,7 @@ function Reviews({film, reviewPosted}: any) {
         <Tr key={review.reviewerId}>
             <Td>
 
-                <Card maxW='4xl'>
+                <Card overflowX='scroll' maxW='3xl'>
                     <CardHeader>
                         <HStack>
                             <Avatar 
@@ -70,7 +70,7 @@ function Reviews({film, reviewPosted}: any) {
                         </HStack>
                     </CardHeader>
                     <CardBody>
-                        {review.review === null ? <Text as='i'>No review provided.</Text> : <Text noOfLines={[1, 2, 3]}>{review.review}</Text>}
+                        {review.review === null ? <Text as='i'>No review provided.</Text> : <Text>{review.review}</Text>}
                     </CardBody>
                 </Card>
             </Td>
@@ -218,8 +218,8 @@ export default function SingleFilm() {
                             </HStack>
                         }
                         {new Date(film.releaseDate) > new Date() ?
-                            <Text as='i'>Release Date: {film.releaseDate.slice(0, 10)}</Text> :
-                            <Text as='i'>Released: {film.releaseDate.slice(0, 10)}</Text>}
+                            <Text as='i'>Release Date: {film.releaseDate.replace('T', ' ').slice(0, -5)}</Text> :
+                            <Text as='i'>Released: {film.releaseDate.replace('T', ' ').slice(0, -5)}</Text>}
                         <br/>
                         <Text as='i'>{genres.get(film.genreId)}</Text>
                         <br/>

@@ -75,7 +75,7 @@ export default function EditFIlm({film, getFilms, isOpen, onClose}: any) {
 
     return (
         <FilmDrawer
-            heading='Edit Film'
+            heading={'Edit ' + film.title}
             isOpen={isOpen}
             onClose={onClose}
             setFilmInfo={setFilmInfo}

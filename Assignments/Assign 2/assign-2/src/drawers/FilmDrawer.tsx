@@ -33,11 +33,11 @@ export default function FilmDrawer({isOpen, onClose, setImageFile, setFilmInfo, 
 
     const [title, setTitle] = useState('');
     const [description, setDescription] = useState('');
-    const [genre, setGenre] = useState("-1'");
+    const [genre, setGenre] = useState("0");
     const [imageUrl, setImageUrl] = useState('https://i.imgflip.com/7my1ae.jpg');
     const [releaseDate, setReleaseDate] = useState('');
     const [ageRating, setAgeRating] = useState('');
-    const [runtime, setRuntime] = useState(-1);
+    const [runtime, setRuntime] = useState(0);
 
     const ageRatings = ['G', 'PG', 'M', 'R13', 'R16', 'R18', 'TBC'];
     const [genres, setGenres] = useState <Map<number, string>> (new Map([]));
@@ -67,7 +67,7 @@ export default function FilmDrawer({isOpen, onClose, setImageFile, setFilmInfo, 
           ))
         )
     }
-
+    
     useEffect(() => {
       const filmInfo = {
         "title": title,
@@ -126,7 +126,7 @@ export default function FilmDrawer({isOpen, onClose, setImageFile, setFilmInfo, 
                         </FormControl>
                         <FormControl pt='4'>
                             <FormLabel>Runtime:</FormLabel>
-                            <NumberInput defaultValue={-1} min={0} value={runtime} onChange={(val) => setRuntime(parseInt(val, 10))}>
+                            <NumberInput defaultValue={0} min={0} value={runtime} onChange={(val) => setRuntime(parseInt(val, 10))}>
                               <NumberInputField />
                               <NumberInputStepper>
                                 <NumberIncrementStepper />

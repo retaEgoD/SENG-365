@@ -12,9 +12,10 @@ function App() {
       <Router>
         <div>
           <Routes>
+            <Route path="/" element={<FilmsPage />}/>
             <Route path="/films" element={<FilmsPage />}/>
+            <Route path="/home" element={<FilmsPage />}/>
             <Route path="/myfilms" element={<MyFilms />}/>
-            <Route path="/" element={<MyFilms />}/>
             <Route path="/films/:id" element={<SingleFilm />}/>
             <Route path="*" element={<NotFound/>}/>
           </Routes>
