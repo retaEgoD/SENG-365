@@ -218,13 +218,11 @@ export default function SingleFilm() {
                             </HStack>
                         }
                         {new Date(film.releaseDate) > new Date() ?
-                            <Text as='i'>Release Date: {film.releaseDate.replace('T', ' ').slice(0, -5)}</Text> :
-                            <Text as='i'>Released: {film.releaseDate.replace('T', ' ').slice(0, -5)}</Text>}
-                        <br/>
-                        <Text as='i'>{genres.get(film.genreId)}</Text>
-                        <br/>
-                        <Text as='i'>Age Rating: {film.ageRating}</Text>
-                        <Text as='i'>Runtime: {film.runtime} minutes</Text>
+                            <Text fontStyle='italic'>Release Date: {film.releaseDate.replace('T', ' ').slice(0, -5)}</Text> :
+                            <Text fontStyle='italic'>Released: {film.releaseDate.replace('T', ' ').slice(0, -5)}</Text>}
+                        <Text fontStyle='italic'>{genres.get(film.genreId)}</Text>
+                        <Text fontStyle='italic'>Age Rating: {film.ageRating}</Text>
+                        <Text fontStyle='italic'>Runtime: {film.runtime} minutes</Text>
                     </Box>
                     <Spacer />
                     <Heading size='md' >About this film:</Heading>
