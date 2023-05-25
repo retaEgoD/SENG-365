@@ -224,6 +224,7 @@ export default function SingleFilm() {
                         <Text as='i'>{genres.get(film.genreId)}</Text>
                         <br/>
                         <Text as='i'>Age Rating: {film.ageRating}</Text>
+                        <Text as='i'>Runtime: {film.runtime} minutes</Text>
                     </Box>
                     <Spacer />
                     <Heading size='md' >About this film:</Heading>
