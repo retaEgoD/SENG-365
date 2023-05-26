@@ -9,10 +9,10 @@ export default function Banner() {
     const { height: _, width } = useWindowDimensions();
     const { isOpen, onOpen, onClose } = useDisclosure()
 
-    const bannerMessages = ['KILL ME',
+    const bannerMessages = ['JUST KILL ME',
                             'PUT MY HEAD IN A BLENDER',
                             'TOSS ME OFF A BRIDGE',
-                            'SMEAR MY HEAD ACROSS THE PAVEMENT, LIKE JAM ON TOAST... MMM...',
+                            'SMEAR MY HEAD ACROSS THE PAVEMENT, LIKE JAM ON TOAST... MMM... TOAST...',
                             'BLOW ME UP',
                             'FIRE ME INTO SPACE',
                             'SQUISH ME IN A HYDRAULIC PRESS',
@@ -21,8 +21,7 @@ export default function Banner() {
                             'POUR $1,000,000 IN PENNIES ONTO ME',
                             'DO NOT TAKE ANY OF THIS SERIOUSLY',
                             'I AM SO FUCKING BORED OF THIS ASSIGNMENT',
-                            'REMOVE MY INTERNAL ORGANS',
-                            'GET ME OUT OF THIS FUCKING HOLE']
+                            'REMOVE MY INTERNAL ORGANS']
 
     return (
         <Box>
